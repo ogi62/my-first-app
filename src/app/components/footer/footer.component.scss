@@ -1,0 +1,23 @@
+.footer {
+    background-color: whitesmoke;
+    color: black;
+    border-top: 1px solid black;
+    padding: 0.5rem;
+
+    &-name {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.25rem;
+    }
+    &-link {
+        color: #888;
+        cursor: pointer;
+        transition: 0.3s;
+        
+        &:hover {
+            color: black;
+        }
+    }
+}
