@@ -1,8 +1,14 @@
 <div class="container">
-    <div class="product-container" *ngFor="let product of products">
-        <span class="product-number">{{product.id}}.</span>
-        <h3 class="product-name">{{ product.title}}</h3>
-        <p class="product-price">{{product.price}}</p>
-        <img class="product-image" src={{product.image}} alt="" style="width: 100px; height: 100px;border: 1px solid black;">
+  <div class="product" *ngFor="let product of products">
+    <div class="image-wrapper">
+        <a href="#" class="image-wrapper-link">
+        <img class="product-image" src="{{ product.image }}" alt="{{product.title}}" />
+        <span class="product-overlay"></span>
+    </a>
     </div>
+    <div class="product-container">
+      <a href="#" class="product-name">{{ product.title }}</a>
+      <p class="product-price">{{ product.price }},00 RSD</p>
+    </div>
+  </div>
 </div>
