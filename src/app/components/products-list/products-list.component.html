@@ -1,14 +1,24 @@
 <div class="container">
-  <div class="product" *ngFor="let product of products">
-    <div class="image-wrapper">
+  <div class="input-container">
+    <label class="input-containerLabel" for="product">Search Product:</label>
+    <input class="input-containerInput" type="text" name="product" [(ngModel)]="search"/>
+  </div>
+  <div class="products">
+    <div class="product" *ngFor="let product of products | filter: search ">
+      <div class="image-wrapper">
         <a href="#" class="image-wrapper-link">
-        <img class="product-image" src="{{ product.image }}" alt="{{product.title}}" />
-        <span class="product-overlay"></span>
-    </a>
-    </div>
-    <div class="product-container">
-      <a href="#" class="product-name">{{ product.title }}</a>
-      <p class="product-price">{{ product.price }},00 RSD</p>
+          <img
+            class="product-image"
+            src="{{ product.image }}"
+            alt="{{ product.title }}"
+          />
+          <span class="product-overlay"></span>
+        </a>
+      </div>
+      <div class="product-container">
+        <a href="#" class="product-name">{{ product.title }}</a>
+        <p class="product-price">{{ product.price }},00 RSD</p>
+      </div>
     </div>
   </div>
 </div>
