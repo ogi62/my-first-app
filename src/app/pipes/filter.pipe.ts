@@ -5,8 +5,13 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(Products: Array<any>, search: string): any {
+    console.log(Products, search)
+
+    if(Products && search) {
+      return Products.filter((d)=> d.title.indexOf(search) > -1)
+    }
+    return Products;
   }
 
 }

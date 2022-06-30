@@ -10,6 +10,7 @@ import { DataService } from 'src/app/services/data.service';
 export class ProductsListComponent implements OnInit {
 
   products!: Product[];
+  search!: string;
 
   constructor(private dataService: DataService) { }
 

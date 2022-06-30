@@ -1,10 +1,10 @@
 <div class="container">
   <div class="input-container">
     <label class="input-containerLabel" for="product">Search Product:</label>
-    <input class="input-containerInput" type="text" name="product" />
+    <input class="input-containerInput" type="text" name="product" [(ngModel)]="search"/>
   </div>
   <div class="products">
-    <div class="product" *ngFor="let product of products">
+    <div class="product" *ngFor="let product of products | filter: search ">
       <div class="image-wrapper">
         <a href="#" class="image-wrapper-link">
           <img
