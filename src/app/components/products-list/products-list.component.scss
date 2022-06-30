@@ -1,9 +1,35 @@
 .container {
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // justify-content: center;
+  // padding: 4rem 0rem;
+  // background-color: blue;
+}
+
+.input-container {
+  background-color: whitesmoke;
+  border-bottom: 1px solid black;
+  padding: 1rem 4.5rem;
+
+  &Label {
+    font-weight: bold;
+  }
+
+  &Input {
+    margin-left: 1rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: none;
+  }
+}
+
+.products {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 4rem 0rem;
 }
 
 .product {
