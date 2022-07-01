@@ -6,6 +6,7 @@ import { ProductsComponent } from './products.component';
 import { ProductsListComponent } from '../components/products-list/products-list.component';
 import { FilterPipe } from '../pipes/filter.pipe';
 import { FormsModule } from '@angular/forms';
+import { ModalComponent } from '../components/modal/modal.component';
 
 
 @NgModule({
@@ -13,11 +14,13 @@ import { FormsModule } from '@angular/forms';
     ProductsComponent,
     ProductsListComponent,
     FilterPipe,
+    ModalComponent,
   ],
   imports: [
     CommonModule,
     ProductsRoutingModule,
-    FormsModule
-  ]
+    FormsModule,
+  ],
+
 })
 export class ProductsModule { }
