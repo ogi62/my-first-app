@@ -7,7 +7,6 @@ import { Product } from '../models/Product';
 export class FilterPipe implements PipeTransform {
 
   transform(Products: Product[], search: string): Product[] {
-    console.log(Products, search)
 
     if(Products && search) {
       return Products.filter((d)=> d.title.toLowerCase().indexOf(search.toLowerCase()) > -1)
