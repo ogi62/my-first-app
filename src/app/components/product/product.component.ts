@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from 'src/app/models/Product';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -16,7 +17,7 @@ export class ProductComponent implements OnInit {
   productPrice!: string;
   productQuantity!: string;
 
-  constructor(public fireservice: ProductsService) { }
+  constructor(public fireservice: ProductsService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -39,6 +40,7 @@ export class ProductComponent implements OnInit {
         this.productImage = "";
         this.productPrice = "";
         this.productQuantity = "";
+        this.router.navigate(["/admin/products"]);
     }).catch(error => {
       console.log(error);
     });
