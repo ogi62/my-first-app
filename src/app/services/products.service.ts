@@ -12,4 +12,8 @@ export class ProductsService {
    getProducts() {
     return this.fireservice.collection("products").snapshotChanges();
   }
+
+  addProduct(product: Object) {
+      return this.fireservice.collection('products').add(product);
+  }
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
@@ -7,6 +8,8 @@ import { environment } from 'src/environments/environment';
 import { AngularFireModule} from '@angular/fire/compat'
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AllProductsComponent } from '../components/all-products/all-products.component';
+import { ProductComponent } from '../components/product/product.component';
+
 
 
 
@@ -14,13 +17,15 @@ import { AllProductsComponent } from '../components/all-products/all-products.co
 @NgModule({
   declarations: [
     AdminComponent,
-    AllProductsComponent
+    AllProductsComponent,
+    ProductComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    FormsModule
   ]
 })
 export class AdminModule { }
