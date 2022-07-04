@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
@@ -23,7 +24,8 @@ import { ProductComponent } from '../components/product/product.component';
     CommonModule,
     AdminRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    FormsModule
   ]
 })
 export class AdminModule { }

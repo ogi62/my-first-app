@@ -2,27 +2,27 @@
     <form class="form">
         <div class="form-group">
             <label for="title" class="form-groupLabel">Title:</label>
-            <input type="text" class="form-groupInput" placeholder="Enter Product Title ...">
+            <input type="text" class="form-groupInput" placeholder="Enter Product Title ..." name="productTitle" [(ngModel)]="productTitle">
         </div>
 
         <div class="form-group">
             <label for="title" class="form-groupLabel">Image Link:</label>
-            <input type="text" class="form-groupInput" placeholder="Enter Product Image ...">
+            <input type="text" class="form-groupInput" placeholder="Enter Product Image ..." name="productImage" [(ngModel)]="productImage">
         </div>
 
         <div class="form-group">
-            <textarea name="title" id="title" cols="30" rows="10" placeholder="Enter Product Description ..."></textarea>
+            <textarea name="title" id="title" cols="30" rows="10" placeholder="Enter Product Description ..." name="productDescription" [(ngModel)]="productDescription"></textarea>
         </div>
 
         <div class="form-group">
             <label for="title" class="form-groupLabel">Price:</label>
-            <input type="text" class="form-groupInput" placeholder="Enter Product Price ...">
+            <input type="text" class="form-groupInput" placeholder="Enter Product Price ..." name="productPrice" [(ngModel)]="productPrice">
         </div>
 
         <div class="form-group">
             <label for="title" class="form-groupLabel">Quantity:</label>
-            <input type="text" class="form-groupInput" placeholder="Enter Product Quantity ...">
+            <input type="text" class="form-groupInput" placeholder="Enter Product Quantity ..." name="productQuantity" [(ngModel)]="productQuantity">
         </div>
-        <button type="submit">Add Product</button>
+        <button type="submit" (click)="addProduct()">Add Product</button>
     </form>
 </div>
