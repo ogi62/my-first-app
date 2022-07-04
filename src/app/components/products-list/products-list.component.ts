@@ -29,9 +29,7 @@ export class ProductsListComponent implements OnInit {
       this.products = data.map(e => {
         return  e.payload.doc.data()
       })
-      console.log(data);
-      console.log(this.products);
-
+      
     });
 
   }
