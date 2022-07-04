@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/Product';
 import { DataService } from 'src/app/services/data.service';
 import { ModalService } from 'src/app/services/modal.service';
+import { ProductsService } from 'src/app/services/products.service';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { ModalService } from 'src/app/services/modal.service';
   styleUrls: ['./products-list.component.scss'],
 })
 export class ProductsListComponent implements OnInit {
-  products!: Product[];
+  products!: any;
   search!: string;
   bodyTitle!: string;
   bodyImage!:string;
@@ -18,11 +19,18 @@ export class ProductsListComponent implements OnInit {
   bodyDescription!: string;
 
 
-  constructor(private dataService: DataService, private modalService: ModalService) {}
+  // constructor(private dataService: DataService, private modalService: ModalService) {}
+  constructor(private productService: ProductsService, private modalService: ModalService) {}
+
 
   ngOnInit(): void {
-    this.products = this.dataService.getProducts();
-    this.bodyTitle = 'This text can be updated in modal 1';
+    this.productService.getProducts().subscribe(data => {
+
+      this.products = data.map(e => {
+        return  e.payload.doc.data()
+      })
+      
+    });
 
   }
 
