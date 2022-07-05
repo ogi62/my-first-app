@@ -13,7 +13,17 @@ export class ProductsService {
     return this.fireservice.collection("products").snapshotChanges();
   }
 
+
+  getProduct(id: any) {
+    return this.fireservice.collection("products").doc(id).valueChanges();
+  }
+
   addProduct(product: Object) {
       return this.fireservice.collection('products').add(product);
   }
+
+  updateProduct(product: Product, id: any) {
+    return this.fireservice.collection('products').doc(id).update(product);
+  }
+
 }
