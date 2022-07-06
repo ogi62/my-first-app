@@ -13,6 +13,7 @@ import { environment } from 'src/environments/environment';
 import { AngularFireModule} from '@angular/fire/compat'
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { NgToastModule } from 'ng-angular-popup';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { EditProductComponent } from './components/edit-product/edit-product.com
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgToastModule
   ],
   providers: [],
   bootstrap: [AppComponent],

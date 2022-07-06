@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Route, Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 import { ProductsService } from 'src/app/services/products.service';
 
 
@@ -17,7 +18,8 @@ export class EditProductComponent implements OnInit {
     private productService: ProductsService,
     public formBuilder: FormBuilder,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private toast: NgToastService
   ) {
     this.editForm = this.formBuilder.group({
       title: [''],
@@ -48,9 +50,19 @@ export class EditProductComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     this.productService.updateProduct(this.editForm.value, id);
     this.router.navigate(['/admin/products']);
+    this.toast.success({
+      detail: 'Product Updated',
+      summary: 'You updated the product successfully !!!',
+      duration: 5000,
+    });
   }
 
   goBack() {
     this.router.navigate(['/admin/products']);
+    this.toast.error({
+      detail: "Warning product isn't updated",
+      summary: 'You went back to admin/product page !',
+      duration: 5000,
+    });
   }
 }
