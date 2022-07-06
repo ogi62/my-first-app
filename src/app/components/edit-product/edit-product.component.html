@@ -23,7 +23,9 @@
             <label for="title" class="form-groupLabel">Quantity:</label>
             <input type="text" class="form-groupInput" placeholder="Enter Product Quantity ..." name="quantity" formControlName="quantity" required>
         </div>
-        <button type="submit" (click)="onSubmit()">Update</button>
-        <button type="button" (click)="goBack()">Go Back</button>
+        <div class="button-group">
+            <button type="submit" (click)="onSubmit()">Update</button>
+            <button type="button" (click)="goBack()">Go Back</button>
+        </div>  
     </form>
 </div>
