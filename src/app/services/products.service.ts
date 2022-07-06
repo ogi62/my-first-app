@@ -26,4 +26,8 @@ export class ProductsService {
     return this.fireservice.collection('products').doc(id).update(product);
   }
 
+  deleteProduct(id: any) {
+    this.fireservice.doc('products/' + id).delete();
+  }
+
 }

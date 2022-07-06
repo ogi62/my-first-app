@@ -18,7 +18,7 @@ export class AllProductsComponent implements OnInit {
     this.productService.getProducts().subscribe((data) => {
         this.products = data.map(p => {
           // znam da ga dohvatim ne znam da ga promenim
-          console.log(p.payload.doc.id)
+          // console.log(p.payload.doc.id);
           return p.payload.doc.data()
         })
     })
@@ -26,6 +26,10 @@ export class AllProductsComponent implements OnInit {
 
   editProduct(item:Product) {
     this.router.navigate(['/admin/product/',item.id],{state: {data: {item}}});
+  }
+
+  deleteProduct(id: any) {
+    this.productService.deleteProduct(id);
   }
 
 }
