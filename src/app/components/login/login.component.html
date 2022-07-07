@@ -20,6 +20,10 @@
                 <div class="danger" *ngIf="password?.errors?.['required'] && ( password?.touched || submitted )">
                     Password is required
                 </div>
+                <div class="danger" *ngIf="password?.touched && password?.errors?.['invalidPassword']">
+                    Password should have minimum 8 characters, at least 1 uppercase letter, 1 lowercase
+                    letter and 1 number
+                </div>
             </div>
             <div class="button-group">
                 <button type="submit" class="button-groupBtn">Login</button>
