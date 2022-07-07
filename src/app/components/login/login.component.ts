@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { authState } from '@angular/fire/auth';
 import { FormBuilder, FormControl, FormGroup,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
@@ -14,13 +15,7 @@ export class LoginComponent implements OnInit {
 
   loginForm!: FormGroup;
   submitted = false;
-
-
-  // loginForm = new FormGroup({
-  //   email: new FormControl('', [Validators.required, Validators.email]),
-  //   password: new FormControl('', [Validators.required])
-  // });
-
+  
   constructor(private router: Router, 
               private fb: FormBuilder,
               private toast: NgToastService,
