@@ -14,6 +14,8 @@ import { AngularFireModule} from '@angular/fire/compat'
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { NgToastModule } from 'ng-angular-popup';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { NgToastModule } from 'ng-angular-popup';
     HeaderComponent,
     FooterComponent,
     EditProductComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
