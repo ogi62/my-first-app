@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { CustomvalidationService } from 'src/app/services/customvalidation.service';
+import { NgToastService } from 'ng-angular-popup';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -15,6 +19,9 @@ export class RegisterComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private customValidator: CustomvalidationService,
+              private authService: AuthenticationService,
+              private toast: NgToastService,
+              private router: Router
               ) { }
 
   ngOnInit(): void {
@@ -50,7 +57,28 @@ export class RegisterComponent implements OnInit {
   }
 
   submit() {
+    if( !this.signupForm.valid ) {
+
+      this.toast.error({
+        detail: 'Sign In Failed',
+        summary: 'Something went wrong try again!',
+        duration: 5000,
+      });
+
+      return;
+    }
     this.submitted = true
+    const { firstName , email, password } = this.signupForm.value;
+    this.authService.signUp(email, password).subscribe(()=> {
+        this.router.navigate(['/products']);
+      });;
+
+      this.toast.success({
+        detail: 'Sign In',
+        summary: 'You successfully created profile',
+        duration: 5000,
+      });
+
   }
 
 }

@@ -21,7 +21,7 @@ export class AuthenticationService {
 
   constructor(private auth: Auth) { }
 
-  signUp(email: string, password: string): Observable<UserCredential> {
+  signUp( email: string, password: string): Observable<UserCredential> {
     return from(createUserWithEmailAndPassword(this.auth, email, password));
   }
 
