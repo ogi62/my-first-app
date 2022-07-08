@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ValidatorFn, AbstractControl } from '@angular/forms';
+import { ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 // i find this on :
 //https://www.freecodecamp.org/news/how-to-validate-angular-reactive-forms/
@@ -38,6 +38,21 @@ export class CustomvalidationService {
   validateUserName(userName: string) {
     const UserList = ['ankit', 'admin', 'user', 'superuser'];
     return (UserList.indexOf(userName) > -1);
+  }
+
+  passwordsMathcValidator() {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const password = control.get('password')?.value;
+      const confirmPassword = control.get('confirmPassword')?.value;
+
+      if ( password && confirmPassword !== confirmPassword ) {
+        return {
+          passowrdsDontMatch: true
+        }
+      }
+
+      return null;
+    }
   }
 
 }
