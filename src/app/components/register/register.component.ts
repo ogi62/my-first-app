@@ -11,6 +11,7 @@ import { CustomvalidationService } from 'src/app/services/customvalidation.servi
 export class RegisterComponent implements OnInit {
 
   signupForm!: FormGroup;
+  submitted = false;
 
   constructor(private fb: FormBuilder,
               private customValidator: CustomvalidationService,
@@ -18,14 +19,14 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.signupForm = this.fb.group({
-      firstName: new FormControl('',Validators.required),
-      lastName: new FormControl('',Validators.required),
-      email: new FormControl('', [Validators.required,Validators.email]),
-      password: new FormControl('', [Validators.required, this.customValidator.patternValidator()]),
-      confirmPassword: new FormControl('', Validators.required)
+      firstName: new FormControl<string>('',Validators.required),
+      lastName: new FormControl<string>('',Validators.required),
+      email: new FormControl<string>('', [Validators.required,Validators.email]),
+      password: new FormControl<string>('', [Validators.required, this.customValidator.patternValidator()]),
+      confirmPassword: new FormControl<string>('', Validators.required)
     },
-    { validator: this.customValidator.passwordsMathcValidator() }
-    )
+    { validator: this.customValidator.passwordsMatchValidator() }
+    );
   }
 
   get firstName() {
@@ -46,6 +47,10 @@ export class RegisterComponent implements OnInit {
 
   get confirmPassword() {
     return this.signupForm.get('confirmPassword');
+  }
+
+  submit() {
+    this.submitted = true
   }
 
 }

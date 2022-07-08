@@ -40,19 +40,18 @@ export class CustomvalidationService {
     return (UserList.indexOf(userName) > -1);
   }
 
-  passwordsMathcValidator() {
+  passwordsMatchValidator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
       const password = control.get('password')?.value;
       const confirmPassword = control.get('confirmPassword')?.value;
-
-      if ( password && confirmPassword !== confirmPassword ) {
-        return {
-          passowrdsDontMatch: true
-        }
+  
+      if (password && confirmPassword && password !== confirmPassword) {
+        return { passwordsDontMatch: true };
+      } else {
+        return null;
       }
-
-      return null;
-    }
+    };
   }
+  
 
 }
