@@ -14,6 +14,14 @@ import { AngularFireModule} from '@angular/fire/compat'
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { NgToastModule } from 'ng-angular-popup';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { provideAuth } from '@angular/fire/auth';
+import { getAuth } from 'firebase/auth';
+import { AuthenticationService } from './services/authentication.service';
+import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
+
+
 
 @NgModule({
   declarations: [
@@ -21,18 +29,22 @@ import { NgToastModule } from 'ng-angular-popup';
     HeaderComponent,
     FooterComponent,
     EditProductComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    provideFirebaseApp( () => initializeApp(environment.firebaseConfig)),
+    provideAuth(()=> getAuth()),
     AngularFirestoreModule,
     ReactiveFormsModule,
     FormsModule,
     NgToastModule
   ],
-  providers: [],
+  providers: [AuthenticationService],
   bootstrap: [AppComponent],
 
 })
