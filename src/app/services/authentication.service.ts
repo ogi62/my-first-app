@@ -9,19 +9,17 @@ import {
   UserCredential,
 } from '@angular/fire/auth';
 
-import { from,Observable } from 'rxjs';
+import { from, Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthenticationService {
-
   currentUser$ = authState(this.auth);
 
+  constructor(private auth: Auth) {}
 
-  constructor(private auth: Auth) { }
-
-  signUp( email: string, password: string): Observable<UserCredential> {
+  signUp(email: string, password: string): Observable<UserCredential> {
     return from(createUserWithEmailAndPassword(this.auth, email, password));
   }
 

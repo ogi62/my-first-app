@@ -7,23 +7,26 @@
             <div class="form-group">
                 <div class="form-groupFirstName">
                     <label class="form-groupLabel" for="firstName">First Name:</label>
-                    <input class="form-groupInput" type="text" name="firstName" id="firstName" placeholder="Enter Your First Name..." formControlName="firstName">
+                    <input class="form-groupInput" type="text" name="firstName" id="firstName"
+                        placeholder="Enter Your First Name..." formControlName="firstName">
                     <div class="danger" *ngIf="firstName?.errors?.['required'] && ( firstName?.touched || submitted )">
                         First Name is required
                     </div>
                 </div>
                 <div class="form-groupLastName">
                     <label class="form-groupLabel" for="lastName">Last Name:</label>
-                    <input class="form-groupInput" type="text" name="lastName" id="lastName" placeholder="Enter Your Last Name..." formControlName="lastName">
+                    <input class="form-groupInput" type="text" name="lastName" id="lastName"
+                        placeholder="Enter Your Last Name..." formControlName="lastName">
                     <div class="danger" *ngIf="lastName?.errors?.['required'] && ( lastName?.touched || submitted )">
                         Last Name is required
                     </div>
                 </div>
             </div>
-               
+
             <div class="form-group">
                 <label class="form-groupLabel" for="name">Email :</label>
-                <input class="form-groupInput" type="text" name="name" id="name" placeholder="Enter Your E-mail..." formControlName="email">
+                <input class="form-groupInput" type="text" name="name" id="name" placeholder="Enter Your E-mail..."
+                    formControlName="email">
                 <div class="danger" *ngIf="email?.errors?.['email'] && ( email?.touched || submitted )">
                     Please enter a valid email address
                 </div>
@@ -33,7 +36,8 @@
             </div>
             <div class="form-group">
                 <label class="form-groupLabel" for="name">Password:</label>
-                <input class="form-groupInput" type="password" name="password" id="password" placeholder="Enter Your Password..." formControlName="password">
+                <input class="form-groupInput" type="password" name="password" id="password"
+                    placeholder="Enter Your Password..." formControlName="password">
                 <div class="danger" *ngIf="password?.errors?.['required'] && ( password?.touched || submitted )">
                     Password is required
                 </div>
@@ -44,11 +48,13 @@
             </div>
             <div class="form-group">
                 <label class="form-groupLabel" for="name">Confirm Password:</label>
-                <input class="form-groupInput" type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm password..." formControlName="confirmPassword">
-                <div class="danger" *ngIf="confirmPassword?.errors?.['required'] && ( confirmPassword?.touched || submitted )">
+                <input class="form-groupInput" type="password" name="confirmPassword" id="confirmPassword"
+                    placeholder="Confirm password..." formControlName="confirmPassword">
+                <div class="danger"
+                    *ngIf="confirmPassword?.errors?.['required'] && ( confirmPassword?.touched || submitted )">
                     Confirm Password is required
-                  </div>
-                  <div class="danger" *ngIf="signupForm.errors?.['passwordsDontMatch'] && confirmPassword?.touched">
+                </div>
+                <div class="danger" *ngIf="signupForm.errors?.['passwordsDontMatch'] && confirmPassword?.touched">
                     Passwords should match
                 </div>
             </div>

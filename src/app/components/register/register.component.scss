@@ -1,98 +1,98 @@
 .container {
-    width: 80%;
-    min-height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 2rem auto;
+  width: 80%;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem auto;
 }
 
 .form-container {
-    background-color: whitesmoke;
-    box-shadow: 0 12px 12px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 20rem;
-    padding: 2rem 2rem;
-    border: 1px solid black;
-    border-radius: 5px;
+  background-color: whitesmoke;
+  box-shadow: 0 12px 12px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20rem;
+  padding: 2rem 2rem;
+  border: 1px solid black;
+  border-radius: 5px;
 
-    &Title {
-        font-size: 2rem;
-        font-weight: bolder;
-    }
+  &Title {
+    font-size: 2rem;
+    font-weight: bolder;
+  }
 
-    &Subtitle {
-        font-size: 1.5rem;
-        font-weight: bold;
-    }
+  &Subtitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
 
-    &Description {
-        letter-spacing: 2px;
-        font-weight: 500;
-    }
+  &Description {
+    letter-spacing: 2px;
+    font-weight: 500;
+  }
 }
 
 .form {
-    padding: 1rem;
-    
-    &-group:nth-of-type(1) {
-        width: 100%;
-        flex-direction: row;
-    }
-    
-    &-group {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 1rem;
+  padding: 1rem;
 
-        &FirstName {
-            margin-right: 1rem;
-        }
+  &-group:nth-of-type(1) {
+    width: 100%;
+    flex-direction: row;
+  }
 
-        &Label {
-            font-size: 1.5rem;
-            font-weight: 300;
-            margin-bottom: 0.75rem;
-        }
+  &-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
 
-        &Input {
-            outline: none;
-            border: 1px solid black;
-            height: 2rem;
-            border-radius: 5px;
-            padding: 0.25rem;
-            cursor: pointer;
-        }
-
-        .danger {
-            color: red;
-        }
+    &FirstName {
+      margin-right: 1rem;
     }
 
-    .button-group {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        &Btn {
-            margin: 0.75rem 0rem;
-            cursor: pointer;
-            border: none;
-            border-radius: 6px;
-            font-size: 1.5rem;
-            line-height: 2.5rem;
-            padding: 0 1rem;
-            width: 10rem;
-            background-color: #1877f2;
-            color: white;
-        }
-
-        a {
-            color: blue;
-            cursor: pointer;
-            text-decoration: underline;
-        }
+    &Label {
+      font-size: 1.5rem;
+      font-weight: 300;
+      margin-bottom: 0.75rem;
     }
+
+    &Input {
+      outline: none;
+      border: 1px solid black;
+      height: 2rem;
+      border-radius: 5px;
+      padding: 0.25rem;
+      cursor: pointer;
+    }
+
+    .danger {
+      color: red;
+    }
+  }
+
+  .button-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &Btn {
+      margin: 0.75rem 0rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.5rem;
+      line-height: 2.5rem;
+      padding: 0 1rem;
+      width: 10rem;
+      background-color: #1877f2;
+      color: white;
+    }
+
+    a {
+      color: blue;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  }
 }

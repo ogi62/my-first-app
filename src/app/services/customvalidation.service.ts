@@ -5,11 +5,10 @@ import { FormGroup } from '@angular/forms';
 //https://www.freecodecamp.org/news/how-to-validate-angular-reactive-forms/
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CustomvalidationService {
-
-  constructor() { }
+  constructor() {}
 
   patternValidator(): ValidatorFn {
     return (control: AbstractControl) => {
@@ -22,9 +21,8 @@ export class CustomvalidationService {
     };
   }
 
-
   userNameValidator(userControl: AbstractControl) {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       setTimeout(() => {
         if (this.validateUserName(userControl.value)) {
           resolve({ userNameNotAvailable: true });
@@ -37,14 +35,14 @@ export class CustomvalidationService {
 
   validateUserName(userName: string) {
     const UserList = ['ankit', 'admin', 'user', 'superuser'];
-    return (UserList.indexOf(userName) > -1);
+    return UserList.indexOf(userName) > -1;
   }
 
   passwordsMatchValidator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
       const password = control.get('password')?.value;
       const confirmPassword = control.get('confirmPassword')?.value;
-  
+
       if (password && confirmPassword && password !== confirmPassword) {
         return { passwordsDontMatch: true };
       } else {
@@ -52,6 +50,4 @@ export class CustomvalidationService {
       }
     };
   }
-  
-
 }
