@@ -3,11 +3,17 @@
         <div class="form-group">
             <label for="title" class="form-groupLabel">Title:</label>
             <input type="text" class="form-groupInput" placeholder="Enter Product Title ..." name="productTitle" formControlName="productTitle">
+            <p class="danger" *ngIf="productTitle?.errors?.['required'] && ( productTitle?.touched || submitted )">
+                Product Name is required
+            </p>
         </div>
 
         <div class="form-group">
             <label for="title" class="form-groupLabel">Image Link:</label>
             <input type="text" class="form-groupInput" placeholder="Enter Product Image ..." name="productImage" formControlName="productImage">
+            <p class="danger" *ngIf="productImage?.errors?.['required'] && ( productImage?.touched || submitted )">
+                Image is required !
+            </p>
         </div>
 
         <div class="form-group">
@@ -17,11 +23,17 @@
         <div class="form-group">
             <label for="title" class="form-groupLabel">Price:</label>
             <input type="text" class="form-groupInput" placeholder="Enter Product Price ..." name="productPrice" formControlName="productPrice">
+            <p class="danger" *ngIf="productPrice?.errors?.['required'] && ( productPrice?.touched || submitted )">
+                Price is required !
+            </p>
         </div>
 
         <div class="form-group">
             <label for="title" class="form-groupLabel">Quantity:</label>
             <input type="text" class="form-groupInput" placeholder="Enter Product Quantity ..." name="productQuantity" formControlName="productQuantity">
+            <p class="danger" *ngIf="productQuantity?.errors?.['required'] && ( productQuantity?.touched || submitted )">
+                Quantity is required !
+            </p>
         </div>
         <button type="submit" (click)="addProduct()">Add Product</button>
     </form>

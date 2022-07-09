@@ -13,6 +13,7 @@ import { ProductsService } from 'src/app/services/products.service';
 export class ProductComponent implements OnInit {
   product!: Product;
   productForm!: FormGroup;
+  submitted = false;
 
   constructor(
     public fireservice: ProductsService,
@@ -52,6 +53,7 @@ export class ProductComponent implements OnInit {
   }
 
   addProduct() {
+    this.submitted = true;
     const { title, price, description, quantity, image } = this.productForm.value;
     this.product = {
      id: Math.floor(Math.random() * 1000000 + 1),
