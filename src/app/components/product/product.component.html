@@ -1,27 +1,27 @@
 <div class="container">
-    <form class="form">
+    <form class="form" [formGroup]="productForm" (ngSubmit)="addProduct()">
         <div class="form-group">
             <label for="title" class="form-groupLabel">Title:</label>
-            <input type="text" class="form-groupInput" placeholder="Enter Product Title ..." name="productTitle" [(ngModel)]="productTitle">
+            <input type="text" class="form-groupInput" placeholder="Enter Product Title ..." name="productTitle" formControlName="productTitle">
         </div>
 
         <div class="form-group">
             <label for="title" class="form-groupLabel">Image Link:</label>
-            <input type="text" class="form-groupInput" placeholder="Enter Product Image ..." name="productImage" [(ngModel)]="productImage">
+            <input type="text" class="form-groupInput" placeholder="Enter Product Image ..." name="productImage" formControlName="productImage">
         </div>
 
         <div class="form-group">
-            <textarea name="title" id="title" cols="30" rows="10" placeholder="Enter Product Description ..." name="productDescription" [(ngModel)]="productDescription"></textarea>
+            <textarea name="title" id="title" cols="30" rows="10" placeholder="Enter Product Description ..." name="productDescription" formControlName="productDescription"></textarea>
         </div>
 
         <div class="form-group">
             <label for="title" class="form-groupLabel">Price:</label>
-            <input type="text" class="form-groupInput" placeholder="Enter Product Price ..." name="productPrice" [(ngModel)]="productPrice">
+            <input type="text" class="form-groupInput" placeholder="Enter Product Price ..." name="productPrice" formControlName="productPrice">
         </div>
 
         <div class="form-group">
             <label for="title" class="form-groupLabel">Quantity:</label>
-            <input type="text" class="form-groupInput" placeholder="Enter Product Quantity ..." name="productQuantity" [(ngModel)]="productQuantity">
+            <input type="text" class="form-groupInput" placeholder="Enter Product Quantity ..." name="productQuantity" formControlName="productQuantity">
         </div>
         <button type="submit" (click)="addProduct()">Add Product</button>
     </form>
