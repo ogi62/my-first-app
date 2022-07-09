@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { validateCallback } from '@firebase/util';
 import { NgToastService } from 'ng-angular-popup';
 import { Product } from 'src/app/models/Product';
 import { ProductsService } from 'src/app/services/products.service';
@@ -11,38 +13,62 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ProductComponent implements OnInit {
   product!: Product;
-  productTitle!: string;
-  productDescription!: string;
-  productImage!: string;
-  productPrice!: string;
-  productQuantity!: string;
+  productForm!: FormGroup;
+  submitted = false;
 
   constructor(
     public fireservice: ProductsService,
     private router: Router,
-    private toast: NgToastService
+    private toast: NgToastService,
+    private fb: FormBuilder,
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.productForm = this.fb.group({
+      productTitle: new FormControl<string>('', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]),
+      productImage: new FormControl<string>('', Validators.required),
+      productDescription: new FormControl<string>('', [ Validators.minLength(10), Validators.maxLength(150)]),
+      productPrice: new FormControl(null, Validators.required),
+      productQuantity: new FormControl(null, Validators.required)
+    })
+  }
+
+  get productTitle() {
+    return this.productForm.get('productTitle');
+  }
+
+  get productImage() {
+    return this.productForm.get('productImage');
+  }
+
+  get productDescription() {
+    return this.productForm.get('productDescription');
+  }
+
+  get productPrice() {
+    return this.productForm.get('productPrice');
+  }
+
+  get productQuantity() {
+    return this.productForm.get('productQuantity');
+  }
 
   addProduct() {
+    this.submitted = true;
+
     this.product = {
-      id: Math.floor(Math.random() * 1000000 + 1),
-      title: this.productTitle,
-      price: +this.productPrice,
-      description: this.productDescription,
-      quantity: +this.productQuantity,
-      image: this.productImage,
+     id: Math.floor(Math.random() * 1000000 + 1),
+     title: this.productForm.value.productTitle,
+      price: this.productForm.value.productPrice,
+      description: this.productForm.value.productDescription,
+      quantity: this.productForm.value.productQuantity,
+      image: this.productForm.value.productImage,
     };
 
     this.fireservice
       .addProduct(this.product)
       .then((res) => {
-        this.productTitle = '';
-        this.productDescription = '';
-        this.productImage = '';
-        this.productPrice = '';
-        this.productQuantity = '';
+       
         this.router.navigate(['/admin/products']);
         this.toast.success({
           detail: 'Product Added',
