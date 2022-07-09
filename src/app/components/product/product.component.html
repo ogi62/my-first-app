@@ -2,10 +2,17 @@
     <form class="form" [formGroup]="productForm" (ngSubmit)="addProduct()">
         <div class="form-group">
             <label for="title" class="form-groupLabel">Title:</label>
-            <input type="text" class="form-groupInput" placeholder="Enter Product Title ..." name="productTitle" formControlName="productTitle">
+            <input type="text" class="form-groupInput" placeholder="Enter Product Title ..." name="productTitle" formControlName="productTitle" minlength="4" maxlength="25">
+            <p class="danger" *ngIf="productTitle?.errors?.['minlength']">
+                Min Length is {{productTitle?.errors?.['minlength']?.requiredLength}}
+              </p>
+           <p class="danger" *ngIf="productTitle?.errors?.['maxlength']">
+            Max length allowed is {{productTitle?.errors?.['maxlength']?.requiredLength}} 
+          </p>
             <p class="danger" *ngIf="productTitle?.errors?.['required'] && ( productTitle?.touched || submitted )">
                 Product Name is required
             </p>
+            
         </div>
 
         <div class="form-group">
@@ -18,6 +25,12 @@
 
         <div class="form-group">
             <textarea name="title" id="title" cols="30" rows="10" placeholder="Enter Product Description ..." name="productDescription" formControlName="productDescription"></textarea>
+            <p class="danger" *ngIf="productDescription?.errors?.['minlength'] && (productDescription?.touched || submitted)">
+                Min Length is {{productDescription?.errors?.['minlength']?.requiredLength}}
+              </p>
+           <p class="danger" *ngIf="productDescription?.errors?.['maxlength'] && ( productDescription?.touched || submitted )">
+            Max length allowed is {{productDescription?.errors?.['maxlength']?.requiredLength}} 
+          </p>
         </div>
 
         <div class="form-group">
@@ -35,6 +48,6 @@
                 Quantity is required !
             </p>
         </div>
-        <button type="submit" (click)="addProduct()">Add Product</button>
+        <button type="submit" [hidden]="!productForm.valid">Add Product</button>
     </form>
 </div>

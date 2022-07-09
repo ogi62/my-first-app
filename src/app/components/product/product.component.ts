@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { validateCallback } from '@firebase/util';
 import { NgToastService } from 'ng-angular-popup';
 import { Product } from 'src/app/models/Product';
 import { ProductsService } from 'src/app/services/products.service';
@@ -24,9 +25,9 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.productForm = this.fb.group({
-      productTitle: new FormControl<string>('', Validators.required),
+      productTitle: new FormControl<string>('', [Validators.required, Validators.minLength(4), Validators.maxLength(20)]),
       productImage: new FormControl<string>('', Validators.required),
-      productDescription: new FormControl<string>(''),
+      productDescription: new FormControl<string>('', [ Validators.minLength(10), Validators.maxLength(150)]),
       productPrice: new FormControl(null, Validators.required),
       productQuantity: new FormControl(null, Validators.required)
     })
@@ -54,14 +55,14 @@ export class ProductComponent implements OnInit {
 
   addProduct() {
     this.submitted = true;
-    const { title, price, description, quantity, image } = this.productForm.value;
+
     this.product = {
      id: Math.floor(Math.random() * 1000000 + 1),
-     title: title,
-      price: price,
-      description: description,
-      quantity: quantity,
-      image: image,
+     title: this.productForm.value.productTitle,
+      price: this.productForm.value.productPrice,
+      description: this.productForm.value.productDescription,
+      quantity: this.productForm.value.productQuantity,
+      image: this.productForm.value.productImage,
     };
 
     this.fireservice
