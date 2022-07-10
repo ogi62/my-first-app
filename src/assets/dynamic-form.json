@@ -1,153 +1,116 @@
 {
-    "controls": [
-      {
-        "name": "firstName",
-        "label": "First name:",
-        "value": "",
-        "type": "text",
-        "validators": {
-          "required": true,
-          "minLength": 3,
-          "maxLength": 25
-        }
-      },
-      {
-        "name": "lastName",
-        "label": "Last name:",
-        "value": "",
-        "type": "text",
-        "validators": {
-            "required": true,
-            "minLength": 4,
-            "maxLength": 25
-        }
-      },
-      {
-        "name": "address",
-        "label": "Address:",
-        "value": "",
-        "type": "text",
-        "validators": {
-            "required":true,
-            "minLength": 6
-        }
-      },
-      {
-        "name": "productName",
-        "label": "Product Name:",
-        "value": "",
-        "type": "text",
-        "validators": {
-            "minLength": 3,
-            "maxLength": 25,
-            "required": true
-        }
-      },
-      {
-        "name": "size",
-        "label": "39",
-        "value": "false",
-        "type": "radio",
-        "validators": {
-            "required": true
-        }
-      },
-      {
-        "name": "size",
-        "label": "39",
-        "value": "false",
-        "type": "radio",
-        "validators": {
-            "required": true
-        }
-      },
-      {
-        "name": "size",
-        "label": "40",
-        "value": "false",
-        "type": "radio",
-        "validators": {
-            "required": true
-        }
-      },
-      {
-        "name": "size",
-        "label": "41",
-        "value": "false",
-        "type": "radio",
-        "validators": {
-            "required": true
-        }
-      },
-      {
-        "name": "size",
-        "label": "42",
-        "value": "false",
-        "type": "radio",
-        "validators": {
-            "required": true
-        }
-      },
-      {
-        "name": "size",
-        "label": "43",
-        "value": "true",
-        "type": "radio",
-        "validators": {
-            "required": true
-        }
-      },
-      {
-        "name": "nike",
-        "label": "Nike",
-        "value": "true",
-        "type": "radio",
-        "validators": {
-            "required": true
-        }
-      },
-      {
-        "name": "pume",
-        "label": "Puma",
-        "value": "true",
-        "type": "radio",
-        "validators": {
-            "required": true
-        }
-      },
-      {
-        "name": "adidas",
-        "label": "Adidas",
-        "value": "true",
-        "type": "radio",
-        "validators": {
-            "required": true
-        }
-      },
-      {
-        "name": "new balance",
-        "label": "New Balance",
-        "value": "true",
-        "type": "radio",
-        "validators": {
-            "required": true
-        }
-      },
-      {
-        "name": "reebook",
-        "label": "reebook",
-        "value": "true",
-        "type": "radio",
-        "validators": {
-            "required": true
-        }
-      },
-      {
-        "name": "description",
-        "label": "Description",
-        "value": "",
-        "type": "textarea",
-        "validators": {}
-      }
-    ]
-  }
+  "controls": [
+   {
+    "name": "firstName",
+    "label": "First Name:",
+    "value": "",
+    "type": "input",
+    "validators": {
+      "required": true,
+      "minLength": 4
+    }
+   },
+   {
+    "name": "lastName",
+    "label": "Last Name:",
+    "value": "",
+    "type": "input",
+    "validators": {
+      "required": true,
+      "minLength": 4
+    }
+   },
+   {
+    "name": "address",
+    "label": "Address:",
+    "value": "",
+    "type": "input",
+    "validators": {
+      "required": true,
+      "minLength": 4
+    }
+   },
+  {
+    "name": "productBrand",
+    "type": "radio",
+    "model": "radio",
+    "label": "Nike",
+    "value": "Nike"
+  },
+  {
+    "name": "productBrand",
+    "type": "radio",
+    "model": "radio",
+    "label": "Adidas",
+    "value": "Adidas"
+  },
+  {
+    "name": "productBrand",
+    "type": "radio",
+    "model": "radio",
+    "label": "Puma",
+    "value": "Puma"
+  },
+  {
+    "name": "productName",
+    "label": "Product Name:",
+    "value": "",
+    "type": "input",
+    "placeholder": "Enter Product Name",
+    "validators": {
+      "required": true,
+      "minLength": 4
+    }
+   },
+   {
+    "name": "productSize",
+    "type": "radio",
+    "model": "radio",
+    "label": "39:",
+    "value": "39",
+    "validators": {
+      "required": true
+    }
+  },
+  {
+    "name": "productSize",
+    "type": "radio",
+    "model": "radio",
+    "label": "40:",
+    "value": "40",
+    "validators": {
+      "required": true
+    }
+  },
+  {
+    "name": "productSize",
+    "type": "radio",
+    "model": "radio",
+    "label": "41:",
+    "value": "41",
+    "validators": {
+      "required": true
+    }
+  },
+  {
+    "name": "productSize",
+    "type": "radio",
+    "model": "radio",
+    "label": "42:",
+    "value": "42",
+    "validators": {
+      "required": true
+    }
+  },
+  {
+    "name": "productDescription",
+    "label": "Product Description:",
+    "value": "",
+    "type": "textarea",
+    "placeholder": "Enter Product Description",
+    "validators": {
+      "required": true
+    }
+   }
+  ]
+}

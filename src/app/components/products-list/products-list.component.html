@@ -13,6 +13,7 @@
       <button class="modal-button" (click)="closeModal('custom-modal-2');">X</button>
   </jw-modal>
   
+  
     <div class="product" *ngFor="let product of products | filter: search ">
       <div class="image-wrapper" (click)="openModal('custom-modal-2',product)">
         <a class="image-wrapper-link">
@@ -31,4 +32,3 @@
     </div>
   </div>
 </div>
-

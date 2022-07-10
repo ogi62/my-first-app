@@ -5,6 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ProductComponent } from './components/product/product.component';
 import { RegisterComponent } from './components/register/register.component';
 import { canActivate, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/auth-guard';
+import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 
 const redirectToLogin = () => redirectUnauthorizedTo(['login']);
 
@@ -48,14 +49,18 @@ const routes: Routes = [
     path: 'products',
     loadChildren: () =>
       import('./products/products.module').then((m) => m.ProductsModule),
-      ...canActivate(redirectToLogin)
+      ...canActivate(redirectToLogin),
   },
   {
     path: 'products/list',
     loadChildren: () =>
       import('./products/products.module').then((m) => m.ProductsModule),
-      ...canActivate(redirectToLogin)
+      ...canActivate(redirectToLogin),
   },
+  {
+    path: 'order-now',
+    component: DynamicFormComponent
+  }
 ];
 
 @NgModule({

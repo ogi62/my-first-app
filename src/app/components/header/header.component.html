@@ -5,6 +5,7 @@
       <span class="navbar-button-icon">My First App</span>
     </button>
     <p class="navbar-name" *ngIf="user$ | async as user">Welcome {{user.email}}!</p>
+    <a routerLink="order-now">Order Now</a>
   </div>
 
   <div class="navbar-items">
