@@ -10,6 +10,17 @@
     &-container {
         display: flex;
         align-items: center;
+
+        &OrderNow {
+            color: lightgreen;
+            margin-right: 1rem;
+            cursor: pointer;
+        }
+
+        &Orders {
+            color: lightcoral;
+            cursor: pointer;
+        }
     }
     
     &-logo {
