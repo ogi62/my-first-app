@@ -5,6 +5,7 @@ import { ModalService } from 'src/app/services/modal.service';
 import { ProductsService } from 'src/app/services/products.service';
 
 
+
 @Component({
   selector: 'app-products-list',
   templateUrl: './products-list.component.html',

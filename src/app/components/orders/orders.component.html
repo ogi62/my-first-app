@@ -1,0 +1,29 @@
+<div class="container">
+    <table class="table">
+        <thead class="table-head">
+          <tr>
+            <th>Product Name</th>
+            <th>Product Brand</th>
+            <th>Product Color</th>
+            <th>Product Size</th>
+            <th>Customers Name</th>
+            <th>Customers Last Name</th>
+          </tr>
+        </thead>
+        <tbody class="table-body">
+          <tr class="table-row" *ngFor="let order of orders">
+            <th class="table-text">{{order.productName}}</th>
+            <th class="table-text">{{order.productBrand}}</th>
+            <th class="table-text">{{order.productColor}}</th>
+            <th class="table-text">{{order.productSize}}</th>
+            <th class="table-text">{{order.firstName}}</th>
+            <th class="table-text">{{order.lastName}}</th>
+            <th class="table-text">
+                <button class="table-textBtn" (click)="getOrder(order.id)">edit</button>
+                <button class="table-textBtn" (click)="deleteOrder(order.id)">delete</button>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+</div>
+

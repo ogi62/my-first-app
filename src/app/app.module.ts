@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +22,7 @@ import { provideAuth } from '@angular/fire/auth';
 import { getAuth } from 'firebase/auth';
 import { AuthenticationService } from './services/authentication.service';
 import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
+import { OrdersComponent } from './components/orders/orders.component';
 
 
 
@@ -31,6 +34,7 @@ import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
     EditProductComponent,
     LoginComponent,
     RegisterComponent,
+    OrdersComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,8 @@ import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
     AngularFirestoreModule,
     ReactiveFormsModule,
     FormsModule,
-    NgToastModule
+    NgToastModule,
+    HttpClientModule
   ],
   providers: [AuthenticationService],
   bootstrap: [AppComponent],

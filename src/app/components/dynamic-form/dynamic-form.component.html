@@ -1,0 +1,50 @@
+<div class="container">
+  <form class="form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
+    <div *ngFor="let control of simpleForm">
+      <div [ngSwitch]="control.type" class="form-group">
+
+        <div *ngSwitchCase="'input'">
+          <label class="form-groupLabel">{{ control.label }}</label>
+          <input class="form-groupInput" [type]="control.type ? control.type : 'text' " [formControlName]="control.name"
+            [placeholder]="control.placeholder" [required]="control.validators.required" />
+          <div class="danger"
+            *ngIf="myForm.get(control.name)?.invalid && ( myForm.get(control.name)?.dirty || myForm.get(control.name)?.touched )">
+            <div *ngIf="control.validators.minLength">Minimum length is {{control.validators.minLength}}</div>
+            <div *ngIf="control?.validators?.required && myForm.get(control.name)?.touched">Input required</div>
+          </div>
+        </div>
+
+        <div *ngSwitchCase="'radio'">
+          <div *ngFor="let option of control.options">
+            <label class="form-groupLabel" [for]="option.optionName"> {{option.optionName}}</label>
+            <input class="form-groupRadio" [id]="option.optionName" [formControlName]="control.name" [type]="control.type"
+              [name]="option.optionName" [value]="option.value" [required]="control.validators.required">
+          </div>
+        </div>
+
+        <div *ngSwitchCase="'textarea'">
+          <label class="form-groupLabel" [for]="control.name">{{control.label}}</label>
+          <textarea class="form-groupTextarea" [formControlName]="control.name" [id]="control.name" rows="5"
+            [placeholder]="control.placeholder"></textarea>
+          <p class="danger"
+            *ngIf="control?.validators?.required && myForm.get(control.name)?.invalid &&( myForm.get(control.name)?.touched)">
+            {{control.label}} is required !
+          </p>
+        </div>
+
+        <div *ngSwitchCase=" 'select' ">
+          <label class="form-groupLabel" [for]="control.name">{{control.label}}</label>
+
+          <select class="form-groupSelect" [formControlName]="control.name" [name]="control.name" [id]="control.name"
+            [required]="control.validators.required">
+            <option selected value="">{{control.placeholder}}</option>
+            <option *ngFor="let option of control.options" [value]="option.value">{{option.optionName}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="form-BtnContainer">
+      <button class="form-btn" type="submit" >Submit</button>
+    </div>
+  </form>
+</div>

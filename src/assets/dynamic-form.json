@@ -1,0 +1,180 @@
+{
+  "controls": [
+   {
+    "name": "firstName",
+    "label": "First Name:",
+    "placeholder": "Firs Name required",
+    "value": "",
+    "type": "input",
+    "validators": {
+      "required": true,
+      "minLength": 4
+    }
+   },
+   {
+    "name": "lastName",
+    "label": "Last Name:",
+    "placeholder": "Last Name required",
+    "value": "",
+    "type": "input",
+    "validators": {
+      "required": true,
+      "minLength": 4
+    }
+   },
+   {
+    "name": "address",
+    "label": "Address:",
+    "placeholder": "Address required",
+    "value": "",
+    "type": "input",
+    "validators": {
+      "required": true,
+      "minLength": 4
+    }
+   },
+  {
+    "name": "productBrand",
+    "type": "select",
+    "model": "select",
+    "label": "Product Brand",
+    "options": [{
+      "optionName": "Puma",
+      "value": "puma"
+    },
+    {
+      "optionName": "Nike",
+      "value": "nike"
+    },
+    {
+      "optionName": "Adidas",
+      "value": "adidas"
+    },
+    {
+      "optionName": "Reebok",
+      "value": "reebok"
+    },
+    {
+      "optionName": "New Balance",
+      "value": "new balance"
+    }],
+    "validators": {
+      "required": false
+    }
+  },
+  {
+    "name": "productName",
+    "label": "Product Name:",
+    "value": "",
+    "type": "input",
+    "placeholder": "Enter Product Name",
+    "validators": {
+      "required": true,
+      "minLength": 4
+    }
+   },
+   {
+    "name": "productSize",
+    "type": "select",
+    "model": "select",
+    "label": "Product Size:",
+    "options": [{
+      "optionName": "39",
+      "value": "39"
+    }, {
+      "optionName": "40",
+      "value": "40"
+    },
+    {
+      "optionName": "41",
+      "value": "41"
+    },
+    {
+      "optionName": "42",
+      "value": "42"
+    },
+    {
+      "optionName": "43",
+      "value": "43"
+    },
+    {
+      "optionName": "44",
+      "value": "44"
+    },
+    {
+      "optionName": "45",
+      "value": "45"
+    },
+    {
+      "optionName": "46",
+      "value": "46"
+    },
+    {
+      "optionName": "47",
+      "value": "47"
+    }],
+    "validators": {
+      "required": false
+    }
+  },
+  {
+    "name": "productColor",
+    "type": "select",
+    "model": "select",
+    "label": "Select Color:",
+    "placeholder": "Select color",
+    "options": [{
+      "optionName": "Black",
+      "value": "Black"
+    }, {
+      "optionName": "White",
+      "value": "White"
+    },
+    {
+      "optionName": "Blue",
+      "value": "Blue"
+    },
+    {
+      "optionName": "Green",
+      "value": "Green"
+    },
+    {
+      "optionName": "Light Blue",
+      "value": "LightBlue"
+    },
+    {
+      "optionName": "Grey",
+      "value": "Grey"
+    },
+    {
+      "optionName": "Brown",
+      "value": "Brown"
+    },
+    {
+      "optionName": "Yellow",
+      "value": "Yellow"
+    },
+    {
+      "optionName": "Pink",
+      "value": "Pink"
+    },
+    {
+      "optionName": "Purple",
+      "value": "Purple"
+    }],
+    "validators": {
+      "required": false
+    }
+  },
+  {
+    "name": "productDescription",
+    "label": "Product Description:",
+    "value": "",
+    "type": "textarea",
+    "placeholder": "Enter Product Description",
+    "validators": {
+      "required": false
+    }
+   }
+  ]
+}
