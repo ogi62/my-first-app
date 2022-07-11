@@ -12,4 +12,10 @@ export class OrderService {
   addOrder(order: Order) {
     return this.orderService.collection('orders').add(order);
 }
+
+getProducts() {
+  return this.orderService.collection("products").snapshotChanges();
+}
+
+
 }

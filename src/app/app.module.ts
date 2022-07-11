@@ -22,6 +22,7 @@ import { provideAuth } from '@angular/fire/auth';
 import { getAuth } from 'firebase/auth';
 import { AuthenticationService } from './services/authentication.service';
 import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
+import { OrdersComponent } from './components/orders/orders.component';
 
 
 
@@ -33,6 +34,7 @@ import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
     EditProductComponent,
     LoginComponent,
     RegisterComponent,
+    OrdersComponent,
   ],
   imports: [
     BrowserModule,
