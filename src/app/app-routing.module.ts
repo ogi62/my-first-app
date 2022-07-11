@@ -60,11 +60,13 @@ const routes: Routes = [
   },
   {
     path: 'order-now',
-    component: DynamicFormComponent
+    component: DynamicFormComponent,
+    ...canActivate(redirectToLogin),
   },
   {
     path: 'app-orders',
-    component: OrdersComponent
+    component: OrdersComponent,
+    ...canActivate(redirectToLogin),
   }
 ];
 

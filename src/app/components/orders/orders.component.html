@@ -19,8 +19,8 @@
             <th class="table-text">{{order.firstName}}</th>
             <th class="table-text">{{order.lastName}}</th>
             <th class="table-text">
-                <button class="table-textBtn">edit</button>
-                <button class="table-textBtn">delete</button>
+                <button class="table-textBtn" (click)="getOrder(order.id)">edit</button>
+                <button class="table-textBtn" (click)="deleteOrder(order.id)">delete</button>
             </th>
           </tr>
         </tbody>

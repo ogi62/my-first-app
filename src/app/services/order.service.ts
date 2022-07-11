@@ -17,5 +17,13 @@ getOrders() {
   return this.orderService.collection("orders").snapshotChanges();
 }
 
+deleteOrder(id: any) {
+  this.orderService.doc('orders/' + id).delete();
+}
+
+getOrder(id: any) {
+  return this.orderService.collection("orders").doc(id).valueChanges();
+}
+
 
 }
