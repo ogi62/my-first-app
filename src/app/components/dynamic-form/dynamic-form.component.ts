@@ -28,8 +28,12 @@ export class DynamicFormComponent implements OnInit {
     for (let control of controls) {
       const newFormControl = new FormControl();
 
-      if(control.validators) {
+      if(control.validators.required) {
         newFormControl.setValidators(Validators.required);
+      }
+
+      if(control.validators.minLength) {
+        newFormControl.setValidators(Validators.minLength(control.validators.minLength));
       }
 
       this.myForm.addControl(control.name, newFormControl)
