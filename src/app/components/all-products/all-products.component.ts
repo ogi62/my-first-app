@@ -21,9 +21,11 @@ export class AllProductsComponent implements OnInit {
   ngOnInit(): void {
     this.productService.getProducts().subscribe((data) => {
       this.products = data.map((p) => {
+        const product = p.payload.doc.data();
+
         // znam da ga dohvatim ne znam da ga promenim
         // console.log(p.payload.doc.id);
-        return p.payload.doc.data();
+        return { ...(product as Object), id: p.payload.doc.id}
       });
     });
   }
