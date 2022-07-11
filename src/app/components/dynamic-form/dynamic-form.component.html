@@ -1,23 +1,29 @@
 <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
     <div *ngFor="let control of simpleForm">
-      <label>{{ control.label }}</label>
       <div [ngSwitch]="control.type">
-        <input *ngSwitchCase="'input'" [type]="control.type ? control.type : 'text' " [formControlName]="control.name"/>
-        <input *ngSwitchCase=" 'radio' " [type]="control.type" [id]="control.name"  [value]="control.value">
 
-        <!-- <input *ngSwitch="'radio'" [type]="control.type" [value]="control.value" [formControlName]="control.name"/> -->
-        <!-- <div [ngSwitchCase]="'radio'">
-            <input [formControlName]="control.name" [type]="control.type" [name]="control.name"
-              [value]="control.value">
-            <label [for]="control.name"> {{control.name}}</label>
+        <div *ngSwitchCase="'input'">
+          <label>{{ control.label }}</label>
+          <input  [type]="control.type ? control.type : 'text' " [formControlName]="control.name"/>
+        </div>
+
+        <!-- <div *ngSwitchCase=" 'radio' ">
+          <label [for]="control.name">{{ control.label }}</label>
+          <input *ngSwitchCase=" 'radio' " [type]="control.type" [id]="control.name"  [value]="control.value">
         </div> -->
-        <div *ngSwitch="'textarea'">
-          <textarea  cols="3" rows="4" [formControlName]="control.name">{{control.placeholder}}</textarea>
+        <div *ngSwitchCase="'radio'">
+          <div *ngFor="let option of control.options">
+            <label [for]="option.optionName"> {{option.optionName}}</label>
+            <input [formControlName]="control.name" [type]="control.type" [name]="control.name"
+              [value]="option.value" [required]="control.validators.required">
+          </div>
+        </div>
 
+        <div *ngSwitchCase="'textarea'">
+          <label [for]="control.name">{{control.label}}</label>
+          <textarea class="form-control" [formControlName]="control.name" [id]="control.name" rows="5"></textarea>
         </div>
       </div>
-      <!-- <input type="radio" id="html" name="fav_language" value="HTML">
-        <label for="html">HTML</label><br> -->
     </div>
-    <button type="submit">Submit</button>
+    <button type="submit" [hidden]="!myForm.valid">Submit</button>
   </form>

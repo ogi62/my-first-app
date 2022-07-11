@@ -34,22 +34,30 @@
     "name": "productBrand",
     "type": "radio",
     "model": "radio",
-    "label": "Nike",
-    "value": "Nike"
-  },
-  {
-    "name": "productBrand",
-    "type": "radio",
-    "model": "radio",
-    "label": "Adidas",
-    "value": "Adidas"
-  },
-  {
-    "name": "productBrand",
-    "type": "radio",
-    "model": "radio",
     "label": "Puma",
-    "value": "Puma"
+    "options": [{
+      "optionName": "Puma",
+      "value": "puma"
+    },
+    {
+      "optionName": "Nike",
+      "value": "nike"
+    },
+    {
+      "optionName": "Adidas",
+      "value": "adidas"
+    },
+    {
+      "optionName": "Reebok",
+      "value": "reebok"
+    },
+    {
+      "optionName": "New Balance",
+      "value": "new balance"
+    }],
+    "validators": {
+      "required": true
+    }
   },
   {
     "name": "productName",
@@ -67,37 +75,41 @@
     "type": "radio",
     "model": "radio",
     "label": "39:",
-    "value": "39",
-    "validators": {
-      "required": true
-    }
-  },
-  {
-    "name": "productSize",
-    "type": "radio",
-    "model": "radio",
-    "label": "40:",
-    "value": "40",
-    "validators": {
-      "required": true
-    }
-  },
-  {
-    "name": "productSize",
-    "type": "radio",
-    "model": "radio",
-    "label": "41:",
-    "value": "41",
-    "validators": {
-      "required": true
-    }
-  },
-  {
-    "name": "productSize",
-    "type": "radio",
-    "model": "radio",
-    "label": "42:",
-    "value": "42",
+    "options": [{
+      "optionName": "39",
+      "value": "39"
+    }, {
+      "optionName": "40",
+      "value": "40"
+    },
+    {
+      "optionName": "41",
+      "value": "41"
+    },
+    {
+      "optionName": "42",
+      "value": "42"
+    },
+    {
+      "optionName": "43",
+      "value": "43"
+    },
+    {
+      "optionName": "44",
+      "value": "44"
+    },
+    {
+      "optionName": "45",
+      "value": "45"
+    },
+    {
+      "optionName": "46",
+      "value": "46"
+    },
+    {
+      "optionName": "47",
+      "value": "47"
+    }],
     "validators": {
       "required": true
     }
