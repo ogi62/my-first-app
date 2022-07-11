@@ -10,13 +10,17 @@ import { OrderService } from 'src/app/services/order.service';
 })
 export class OrdersComponent implements OnInit {
 
-  orders!: Order[];
+  orders!: any[];
 
   constructor(private orderService: OrderService, private router: Router) { }
 
   ngOnInit(): void {
-    this.orderService.getProducts().subscribe((order) => {
-      console.log(order);
+    this.orderService.getOrders().subscribe((data) => {
+      console.log(data)
+      this.orders = data.map((order) => {
+        console.log(order.payload.doc.data())
+        return order.payload.doc.data();
+      });
     })
   }
 

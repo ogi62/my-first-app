@@ -13,8 +13,8 @@ export class OrderService {
     return this.orderService.collection('orders').add(order);
 }
 
-getProducts() {
-  return this.orderService.collection("products").snapshotChanges();
+getOrders() {
+  return this.orderService.collection("orders").snapshotChanges();
 }
 
 
