@@ -6,6 +6,7 @@ import { ProductComponent } from './components/product/product.component';
 import { RegisterComponent } from './components/register/register.component';
 import { canActivate, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/auth-guard';
 import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
+import { OrdersComponent } from './components/orders/orders.component';
 
 const redirectToLogin = () => redirectUnauthorizedTo(['login']);
 
@@ -60,6 +61,10 @@ const routes: Routes = [
   {
     path: 'order-now',
     component: DynamicFormComponent
+  },
+  {
+    path: 'app-orders',
+    component: OrdersComponent
   }
 ];
 
