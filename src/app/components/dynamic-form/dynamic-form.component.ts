@@ -3,6 +3,9 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { JsonFormData,JsonFormControls } from 'src/app/models/JsonFormControls';
 import DynamicForm from "../../../assets/dynamic-form.json";
 import { Order } from "../../models/Order";
+import { OrderService } from 'src/app/services/order.service';
+import { NgToastService } from 'ng-angular-popup';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,7 +18,11 @@ export class DynamicFormComponent implements OnInit {
   simpleForm = DynamicForm.controls;
   order!: Order;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, 
+              private orderService: OrderService,
+              private router: Router,
+              private toast: NgToastService,
+              ) {
     console.log(this.simpleForm);
     this.myForm = this.fb.group({});
     this.createControls(this.simpleForm);
@@ -54,12 +61,31 @@ export class DynamicFormComponent implements OnInit {
       address: this.myForm.value.address,
       productBrand: this.myForm.value.productBrand,
       productName: this.myForm.value.productName,
-      productSize: this.myForm.value.productSize,
+      productSize: +this.myForm.value.productSize,
       productColor: this.myForm.value.productColor,
       productDescription: this.myForm.value.productDescription,
      };
 
-     console.log(this.order)
+     console.log(this.order);
+
+     this.orderService
+      .addOrder(this.order)
+      .then((res) => {
+       
+        this.toast.success({
+          detail: 'Order Sent',
+          summary: 'You successfully ordered a new product !',
+          duration: 5000,
+        });
+        this.myForm.reset();
+      })
+      .catch((error) => {
+        this.toast.error({
+          detail: "Product isn't ordered",
+          summary: error.message,
+          duration: 5000,
+        });
+      });
 
   }
 }
