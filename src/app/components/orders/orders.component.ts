@@ -25,7 +25,7 @@ export class OrdersComponent implements OnInit {
         console.log(order.payload.doc.id);
         console.log("productNew",{ ...(product as Object), id: order.payload.doc.id} );
 
-        return { ...(product as Object), id: order.payload.doc.id};
+        return { ...(product as Object), id: order.payload.doc.id}
       });
     })
   }
