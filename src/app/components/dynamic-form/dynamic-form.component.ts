@@ -38,8 +38,8 @@ export class DynamicFormComponent implements OnInit {
     }
   
   onSubmit() {
-    // console.log('Form valid: ', this.myForm.valid);
-    // console.log('Form values: ', this.myForm.value);
+    console.log('Form valid: ', this.myForm.valid);
+    console.log('Form values: ', this.myForm.value);
   }
 }
 

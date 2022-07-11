@@ -5,20 +5,32 @@
       <div *ngSwitchCase="'input'">
         <label>{{ control.label }}</label>
         <input [type]="control.type ? control.type : 'text' " [formControlName]="control.name"
-          [required]="control.validators.required" [minLength]="control.validators.minLength" />
+                [placeholder]="control.placeholder" [required]="control.validators.required"/>
+          <div class="danger" *ngIf="myForm.get(control.name)?.invalid && ( myForm.get(control.name)?.dirty || myForm.get(control.name)?.touched )">
+            <div *ngIf="control.validators.minLength">Minimum length is {{control.validators.minLength}}</div>
+            <div *ngIf="control?.validators?.required && myForm.get(control.name)?.touched">Input required</div>
+          </div>
+          <!-- <p class="danger" *ngIf="control?.validators?.required && myForm.get(control.name)?.invalid &&( myForm.get(control.name)?.touched)">
+            {{control.label}} is required !
+        </p>
+        <p class="danger" *ngIf="control?.validators?.minLength  && myForm.get(control.name)?.invalid && ( myForm.get(control.name)?.touched)">
+          {{control.label.substring(0, control.label.length - 1)}} min length is {{control.validators.minLength}} !
+      </p> -->
       </div>
 
       <div *ngSwitchCase="'radio'">
         <div *ngFor="let option of control.options">
           <label [for]="option.optionName"> {{option.optionName}}</label>
-          <input [formControlName]="control.name" [type]="control.type" [name]="control.name" [value]="option.value"
-            [required]="control.validators.required">
+          <input [id]="option.optionName" [formControlName]="control.name" [type]="control.type" [name]="option.optionName" [value]="option.value" [required]="control.validators.required">
         </div>
       </div>
 
       <div *ngSwitchCase="'textarea'">
         <label [for]="control.name">{{control.label}}</label>
-        <textarea class="form-control" [formControlName]="control.name" [id]="control.name" rows="5"></textarea>
+        <textarea class="form-control" [formControlName]="control.name" [id]="control.name" rows="5" [placeholder]="control.placeholder"></textarea>
+        <p class="danger" *ngIf="control?.validators?.required && myForm.get(control.name)?.invalid &&( myForm.get(control.name)?.touched)">
+            {{control.label}} is required !
+        </p>
       </div>
 
       <div *ngSwitchCase=" 'select' ">
@@ -28,8 +40,12 @@
           <option selected value="">{{control.placeholder}}</option>
           <option *ngFor="let option of control.options" [value]="option.value">{{option.optionName}}</option>
         </select>
+        <!-- not working i dont know why ? -->
+        <!-- <p class="danger" *ngIf="control?.validators?.required && myForm.get(control.name)?.invalid &&( myForm.get(control.name)?.touched)">
+          {{control.label}} is required !
+      </p> -->
       </div>
     </div>
   </div>
-  <button type="submit" [hidden]="!myForm.valid">Submit</button>
+  <button type="submit" [hidden]="myForm.invalid">Submit</button>
 </form>

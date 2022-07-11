@@ -3,6 +3,7 @@
    {
     "name": "firstName",
     "label": "First Name:",
+    "placeholder": "Firs Name required",
     "value": "",
     "type": "input",
     "validators": {
@@ -13,6 +14,7 @@
    {
     "name": "lastName",
     "label": "Last Name:",
+    "placeholder": "Last Name required",
     "value": "",
     "type": "input",
     "validators": {
@@ -23,6 +25,7 @@
    {
     "name": "address",
     "label": "Address:",
+    "placeholder": "Address required",
     "value": "",
     "type": "input",
     "validators": {
@@ -32,9 +35,9 @@
    },
   {
     "name": "productBrand",
-    "type": "radio",
-    "model": "radio",
-    "label": "Puma",
+    "type": "select",
+    "model": "select",
+    "label": "Product Brand",
     "options": [{
       "optionName": "Puma",
       "value": "puma"
@@ -56,7 +59,7 @@
       "value": "new balance"
     }],
     "validators": {
-      "required": true
+      "required": false
     }
   },
   {
@@ -72,9 +75,9 @@
    },
    {
     "name": "productSize",
-    "type": "radio",
-    "model": "radio",
-    "label": "39:",
+    "type": "select",
+    "model": "select",
+    "label": "Product Size:",
     "options": [{
       "optionName": "39",
       "value": "39"
@@ -111,7 +114,7 @@
       "value": "47"
     }],
     "validators": {
-      "required": true
+      "required": false
     }
   },
   {
@@ -160,7 +163,7 @@
       "value": "Purple"
     }],
     "validators": {
-      "required": true
+      "required": false
     }
   },
   {
@@ -170,7 +173,7 @@
     "type": "textarea",
     "placeholder": "Enter Product Description",
     "validators": {
-      "required": true
+      "required": false
     }
    }
   ]
