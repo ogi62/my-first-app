@@ -115,6 +115,55 @@
     }
   },
   {
+    "name": "productColor",
+    "type": "select",
+    "model": "select",
+    "label": "Select Color:",
+    "placeholder": "Select color",
+    "options": [{
+      "optionName": "Black",
+      "value": "Black"
+    }, {
+      "optionName": "White",
+      "value": "White"
+    },
+    {
+      "optionName": "Blue",
+      "value": "Blue"
+    },
+    {
+      "optionName": "Green",
+      "value": "Green"
+    },
+    {
+      "optionName": "Light Blue",
+      "value": "LightBlue"
+    },
+    {
+      "optionName": "Grey",
+      "value": "Grey"
+    },
+    {
+      "optionName": "Brown",
+      "value": "Brown"
+    },
+    {
+      "optionName": "Yellow",
+      "value": "Yellow"
+    },
+    {
+      "optionName": "Pink",
+      "value": "Pink"
+    },
+    {
+      "optionName": "Purple",
+      "value": "Purple"
+    }],
+    "validators": {
+      "required": true
+    }
+  },
+  {
     "name": "productDescription",
     "label": "Product Description:",
     "value": "",
