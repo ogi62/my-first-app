@@ -67,6 +67,11 @@ const routes: Routes = [
     path: 'app-orders',
     component: OrdersComponent,
     ...canActivate(redirectToLogin),
+  },
+  {
+    path: '**',
+    component: LoginComponent,
+    ...canActivate(redirectToProduct)
   }
 ];
 
