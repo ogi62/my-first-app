@@ -50,26 +50,42 @@ export class LoginComponent implements OnInit {
   }
 
   submit() {
-    if (!this.loginForm.valid) {
-      this.toast.error({
-        detail: 'Login Failed',
-        summary: 'Something went wrong !',
-        duration: 5000,
+    try {
+      this.submitted = true;
+      const { email, password } = this.loginForm.value;
+      // previous version with login()Observable
+      // this.auth.login(email, password).subscribe(() => {
+      //   this.router.navigate(['/products']);
+      //   this.toast.success({
+      //     detail: 'Log In',
+      //     summary: 'You are successfully logged in',
+      //     duration: 5000,
+      //   });
+      // });
+      this.auth.login(email, password).then(() => {
+        this.toast.success({
+          detail: 'Log in',
+          summary: 'You are successfully logged in',
+          duration: 5000,
+        });
+        this.router.navigate(['/products']);
       });
-      return;
+
+      if (!this.loginForm.valid) {
+        this.toast.error({
+          detail: 'Login Failed',
+          summary: 'Something went wrong !',
+          duration: 5000,
+        });
+        return;
+      }
+    } catch (error) {
+      // this.toast.error({
+      //   detail: "Ovo je error",
+      //   summary: 'You are successfully logged in',
+      //   duration: 5000,
+      // });
+      console.log(error);
     }
-
-    this.submitted = true;
-    const { email, password } = this.loginForm.value;
-
-    this.auth.login(email, password).subscribe(() => {
-      this.router.navigate(['/products']);
-    });
-
-    this.toast.success({
-      detail: 'Log In',
-      summary: 'You are successfully logged in',
-      duration: 5000,
-    });
   }
 }
