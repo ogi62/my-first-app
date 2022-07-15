@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GuardsGuard implements CanActivate {
+
+  constructor(private route: Router) {}
+
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
@@ -13,11 +16,16 @@ export class GuardsGuard implements CanActivate {
   }
 
    private isAuthorized(route: ActivatedRouteSnapshot) :boolean  {
-    const roles = ['Admin', 'ogi@gmail.com'];
-    const expectedRoles = route.data['expectedRoles'];
-    const rolesMatches = roles.findIndex( role => expectedRoles.indexOf(role) !== -1);
+    const role = (localStorage.getItem("user"));
+    const admin = "aTSJ4rkFH7Xzq8b7VMseuhImRh42";
 
-    return rolesMatches < 0 ? false : true;
+    if( admin === role) {
+      return true;
+    }
+    this.route.navigate(['/products']);
+
+    return false;
+
   }
   
 }

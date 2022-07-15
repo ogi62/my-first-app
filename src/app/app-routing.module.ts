@@ -7,6 +7,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { canActivate, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/auth-guard';
 import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 import { OrdersComponent } from './components/orders/orders.component';
+import { GuardsGuard } from './guards/guards.guard';
 
 const redirectToLogin = () => redirectUnauthorizedTo(['login']);
 
@@ -29,14 +30,14 @@ const routes: Routes = [
     path: 'admin',
     loadChildren: () =>
       import('./admin/admin.module').then((m) => m.AdminModule),
-      ...canActivate(redirectToLogin)
+      canActivate:[GuardsGuard]
   },
   {
     path: 'admin/products',
     loadChildren: () =>
       import('./admin/admin.module').then((m) => m.AdminModule),
-      ...canActivate(redirectToLogin)
-  },
+      canActivate:[GuardsGuard]
+    },
   {
     path: 'admin/product',
     component: ProductComponent,

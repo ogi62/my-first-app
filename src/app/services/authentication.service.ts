@@ -27,6 +27,7 @@ export class AuthenticationService {
     return new Promise<any>((resolve, reject) => {
       signInWithEmailAndPassword(this.auth, email, password).then(
         (res) => {
+          localStorage.setItem('user',res.user.uid)
           resolve(res);
         },
         (err) => {
@@ -42,6 +43,7 @@ export class AuthenticationService {
   }
 
   logout(): Observable<any> {
+    localStorage.clear();
     return from(this.auth.signOut());
   }
 }
