@@ -8,6 +8,7 @@ import { canActivate, redirectUnauthorizedTo, redirectLoggedInTo } from '@angula
 import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { GuardsGuard } from './guards/guards.guard';
+import { UserGuard } from './guards/user.guard';
 
 const redirectToLogin = () => redirectUnauthorizedTo(['login']);
 
@@ -62,7 +63,7 @@ const routes: Routes = [
   {
     path: 'order-now',
     component: DynamicFormComponent,
-    ...canActivate(redirectToLogin),
+    canActivate:[UserGuard]
   },
   {
     path: 'app-orders',
