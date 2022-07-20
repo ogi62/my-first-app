@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
-import { FormGroup } from '@angular/forms';
 // i find this on :
 //https://www.freecodecamp.org/news/how-to-validate-angular-reactive-forms/
 

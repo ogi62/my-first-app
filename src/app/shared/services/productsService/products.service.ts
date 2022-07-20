@@ -3,23 +3,21 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Product } from '../../models/Product';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductsService {
+  constructor(private fireservice: AngularFirestore) {}
 
-  constructor(private fireservice: AngularFirestore) { }
-
-   getProducts() {
-    return this.fireservice.collection("products").snapshotChanges();
+  getProducts() {
+    return this.fireservice.collection('products').snapshotChanges();
   }
 
-
   getProduct(id: any) {
-    return this.fireservice.collection("products").doc(id).valueChanges();
+    return this.fireservice.collection('products').doc(id).valueChanges();
   }
 
   addProduct(product: Object) {
-      return this.fireservice.collection('products').add(product);
+    return this.fireservice.collection('products').add(product);
   }
 
   updateProduct(product: Product, id: any) {
@@ -29,5 +27,4 @@ export class ProductsService {
   deleteProduct(id: any) {
     this.fireservice.doc('products/' + id).delete();
   }
-
 }

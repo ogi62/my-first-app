@@ -1,19 +1,20 @@
 <div class="products">
-    <button class="products-addBtn" routerLink="/admin/product">Add New Product</button>
-    <div class="product" *ngFor="let product of products">
-        <div class="product-image">
-            <img src="{{product.image}}" alt="">
-        </div>
-        <div class="product-title">
-           <p>{{product.title}}</p>
-        </div>
-        <div class="product-price">
-            <p>{{product.price}} RSD</p>
-        </div>
-        <div class="product-buttons">
-            <button (click)="editProduct(product)">Edit</button>
-            <button (click)="deleteProduct(product.id)">Delete</button>
-        </div>
+  <button class="products-addBtn" routerLink="/admin/product">
+    Add New Product
+  </button>
+  <div class="product" *ngFor="let product of products">
+    <div class="product-image">
+      <img src="{{ product.image }}" alt="" />
     </div>
-    
+    <div class="product-title">
+      <p>{{ product.title }}</p>
+    </div>
+    <div class="product-price">
+      <p>{{ product.price }} RSD</p>
+    </div>
+    <div class="product-buttons">
+      <button (click)="editProduct(product)">Edit</button>
+      <button (click)="deleteProduct(product.id)">Delete</button>
+    </div>
+  </div>
 </div>

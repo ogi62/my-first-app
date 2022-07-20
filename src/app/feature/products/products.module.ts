@@ -11,8 +11,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { OrdersComponent } from '../products/orders/orders.component';
 
-
-
 @NgModule({
   declarations: [
     ProductsComponent,
@@ -29,6 +27,5 @@ import { OrdersComponent } from '../products/orders/orders.component';
     HttpClientModule,
     ReactiveFormsModule,
   ],
-
 })
-export class ProductsModule { }
+export class ProductsModule {}

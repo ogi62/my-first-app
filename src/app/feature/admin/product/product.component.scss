@@ -24,7 +24,7 @@
       background-color: lightgreen;
       color: green;
       border-radius: 5px;
-        cursor: pointer;
+      cursor: pointer;
     }
 
     &-buttonDanger {
@@ -37,8 +37,6 @@
       background-color: lightcoral;
       color: black;
     }
-
-    
 
     &-group {
       display: flex;
@@ -81,19 +79,20 @@
         margin: 1rem;
         cursor: pointer;
 
-        &:active, textarea:focus {
+        &:active,
+        textarea:focus {
           outline: none;
         }
-  
+
         &.ng-invalid.ng-touched {
           border: red 1px solid;
         }
-  
+
         &.ng-valid.ng-touched {
           border: 1px solid lightgreen;
         }
       }
-      
+
       .danger {
         color: red;
       }

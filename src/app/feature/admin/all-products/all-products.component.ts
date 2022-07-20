@@ -25,7 +25,7 @@ export class AllProductsComponent implements OnInit {
 
         // znam da ga dohvatim ne znam da ga promenim
         // console.log(p.payload.doc.id);
-        return { ...(product as Object), id: p.payload.doc.id}
+        return { ...(product as Object), id: p.payload.doc.id };
       });
     });
   }
