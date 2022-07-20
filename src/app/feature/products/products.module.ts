@@ -9,6 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ModalComponent } from './modal/modal.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
+import { OrdersComponent } from '../products/orders/orders.component';
+
 
 
 @NgModule({
@@ -18,6 +20,7 @@ import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
     FilterPipe,
     ModalComponent,
     DynamicFormComponent,
+    OrdersComponent,
   ],
   imports: [
     CommonModule,

@@ -4,12 +4,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { AdminRoutingModule } from './admin-routing.module';
-import { AdminComponent } from './admin.component';
 import { environment } from 'src/environments/environment';
 import { AngularFireModule} from '@angular/fire/compat'
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AllProductsComponent } from './all-products/all-products.component';
 import { ProductComponent } from './product/product.component';
+import { EditProductComponent } from '../admin/edit-product/edit-product.component';
+import { AdminComponent } from '../../feature/admin/admin.component';
 
 
 
@@ -19,7 +20,8 @@ import { ProductComponent } from './product/product.component';
   declarations: [
     AdminComponent,
     AllProductsComponent,
-    ProductComponent
+    ProductComponent,
+    EditProductComponent,
   ],
   imports: [
     CommonModule,
