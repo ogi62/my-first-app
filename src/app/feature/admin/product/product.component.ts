@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { validateCallback } from '@firebase/util';
 import { NgToastService } from 'ng-angular-popup';
-import { Product } from 'src/app/models/Product';
+import { Product } from 'src/app/shared/models/Product';
 import { ProductsService } from 'src/app/shared/services/productsService/products.service';
 
 @Component({

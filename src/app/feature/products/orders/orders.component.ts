@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
-import { Order } from 'src/app/models/Order';
+import { Order } from "../../../shared/models/Order";
 import { OrderService } from 'src/app/feature/products/orders/ordersService/order.service';
 
 @Component({
