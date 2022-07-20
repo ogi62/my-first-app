@@ -10,14 +10,16 @@
     justify-content: center;
     align-items: center;
     font-size: 1.25rem;
-  }
-  &-link {
-    color: #888;
-    cursor: pointer;
-    transition: 0.3s;
-
-    &:hover {
-      color: black;
+    
+    &Link {
+      color: #888;
+      cursor: pointer;
+      transition: 0.3s;
+  
+      &:hover {
+        color: black;
+      }
     }
   }
+ 
 }

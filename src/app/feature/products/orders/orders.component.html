@@ -12,15 +12,15 @@
         </thead>
         <tbody class="table-body">
           <tr class="table-row" *ngFor="let order of orders">
-            <th class="table-text">{{order.productName}}</th>
-            <th class="table-text">{{order.productBrand}}</th>
-            <th class="table-text">{{order.productColor}}</th>
-            <th class="table-text">{{order.productSize}}</th>
-            <th class="table-text">{{order.firstName}}</th>
-            <th class="table-text">{{order.lastName}}</th>
-            <th class="table-text">
-                <button class="table-textBtn" (click)="getOrder(order.id)">edit</button>
-                <button class="table-textBtn" (click)="deleteOrder(order.id)">delete</button>
+            <th class="table-rowText">{{order.productName}}</th>
+            <th class="table-rowText">{{order.productBrand}}</th>
+            <th class="table-rowText">{{order.productColor}}</th>
+            <th class="table-rowText">{{order.productSize}}</th>
+            <th class="table-rowText">{{order.firstName}}</th>
+            <th class="table-rowText">{{order.lastName}}</th>
+            <th class="table-rowText">
+                <button class="table-rowTextBtn" (click)="getOrder(order.id)">edit</button>
+                <button class="table-rowTextBtn" (click)="deleteOrder(order.id)">delete</button>
             </th>
           </tr>
         </tbody>

@@ -16,18 +16,18 @@
   
     <div class="product" *ngFor="let product of products | filter: search ">
       <div class="image-wrapper" (click)="openModal('custom-modal-2',product)">
-        <a class="image-wrapper-link">
+        <a class="image-wrapperLink">
           <img
-            class="product-image"
+            class="image-wrapperImage"
             src="{{ product.image }}"
             alt="{{ product.title }}"
           />
-          <span class="product-overlay"></span>
+          <span class="image-wrapperOverlay"></span>
         </a>
       </div>
       <div class="product-container">
-        <a class="product-name">{{ product.title }}</a>
-        <p class="product-price">{{ product.price }},00 RSD</p>
+        <a class="product-containerName">{{ product.title }}</a>
+        <p class="product-containerPrice">{{ product.price }},00 RSD</p>
       </div>
     </div>
   </div>
