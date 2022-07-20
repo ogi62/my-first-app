@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EditProductComponent } from './components/edit-product/edit-product.component';
-import { LoginComponent } from './components/login/login.component';
-import { ProductComponent } from './components/product/product.component';
-import { RegisterComponent } from './components/register/register.component';
+import { EditProductComponent } from './feature/admin/edit-product/edit-product.component';
+import { LoginComponent } from './shared/shell/login/login.component';
+import { ProductComponent } from './feature/admin/product/product.component';
+import { RegisterComponent } from './shared/shell/register/register.component';
 import { canActivate, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/auth-guard';
-import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
-import { OrdersComponent } from './components/orders/orders.component';
-import { GuardsGuard } from './guards/guards.guard';
-import { UserGuard } from './guards/user.guard';
+import { DynamicFormComponent } from './feature/products/dynamic-form/dynamic-form.component';
+import { OrdersComponent } from './feature/products/orders/orders.component';
+import { GuardsGuard } from './core/guards/AdminGuard/admin.guard';
+import { UserGuard } from './core/guards/UserGuard/user.guard';
 
 const redirectToLogin = () => redirectUnauthorizedTo(['login']);
 
@@ -30,13 +30,13 @@ const routes: Routes = [
   {
     path: 'admin',
     loadChildren: () =>
-      import('./admin/admin.module').then((m) => m.AdminModule),
+      import('./feature/admin/admin.module').then((m) => m.AdminModule),
       canActivate:[GuardsGuard]
   },
   {
     path: 'admin/products',
     loadChildren: () =>
-      import('./admin/admin.module').then((m) => m.AdminModule),
+      import('./feature/admin/admin.module').then((m) => m.AdminModule),
       canActivate:[GuardsGuard]
     },
   {
@@ -51,13 +51,13 @@ const routes: Routes = [
   {
     path: 'products',
     loadChildren: () =>
-      import('./products/products.module').then((m) => m.ProductsModule),
+      import('./feature/products/products.module').then((m) => m.ProductsModule),
       ...canActivate(redirectToLogin),
   },
   {
     path: 'products/list',
     loadChildren: () =>
-      import('./products/products.module').then((m) => m.ProductsModule),
+      import('./feature/products/products.module').then((m) => m.ProductsModule),
       ...canActivate(redirectToLogin),
   },
   {
