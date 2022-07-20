@@ -7,23 +7,23 @@ import { OrdersComponent } from './orders/orders.component';
 import { ProductsComponent } from './products.component';
 
 const routes: Routes = [
-  { 
-  path: '', 
-  component: ProductsComponent 
+  {
+    path: '',
+    component: ProductsComponent,
   },
   {
     path: 'order-now',
     component: DynamicFormComponent,
-    canActivate:[UserGuard]
+    canActivate: [UserGuard],
   },
   {
     path: 'app-orders',
-    component: OrdersComponent
-  }
+    component: OrdersComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class ProductsRoutingModule { }
+export class ProductsRoutingModule {}

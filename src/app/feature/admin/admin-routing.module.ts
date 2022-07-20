@@ -6,24 +6,22 @@ import { EditProductComponent } from './edit-product/edit-product.component';
 import { ProductComponent } from './product/product.component';
 
 const routes: Routes = [
-  { 
-    path: '', 
+  {
+    path: '',
     component: AdminComponent,
   },
-  { 
-    path: 'products', 
-    component: AllProductsComponent
+  {
+    path: 'products',
+    component: AllProductsComponent,
   },
-  { 
-    path: 'product', 
-    component: ProductComponent
+  {
+    path: 'product',
+    component: ProductComponent,
   },
-  { path: 'product/:id', 
-    component: EditProductComponent
-  }
+  { path: 'product/:id', component: EditProductComponent },
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AdminRoutingModule { }
+export class AdminRoutingModule {}

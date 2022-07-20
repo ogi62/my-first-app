@@ -22,8 +22,6 @@ export class OrdersComponent implements OnInit {
     this.orderService.getOrders().subscribe((data) => {
       this.orders = data.map((order) => {
         const product = order.payload.doc.data();
-        console.log(order.payload.doc.id);
-        console.log("productNew",{ ...(product as Object), id: order.payload.doc.id} );
 
         return { ...(product as Object), id: order.payload.doc.id}
       });

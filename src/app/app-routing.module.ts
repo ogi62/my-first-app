@@ -1,14 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EditProductComponent } from './feature/admin/edit-product/edit-product.component';
 import { LoginComponent } from './shared/shell/login/login.component';
-import { ProductComponent } from './feature/admin/product/product.component';
 import { RegisterComponent } from './shared/shell/register/register.component';
-import { canActivate, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/auth-guard';
-import { DynamicFormComponent } from './feature/products/dynamic-form/dynamic-form.component';
-import { OrdersComponent } from './feature/products/orders/orders.component';
+import {
+  canActivate,
+  redirectUnauthorizedTo,
+  redirectLoggedInTo,
+} from '@angular/fire/auth-guard';
 import { GuardsGuard } from './core/guards/AdminGuard/admin.guard';
-import { UserGuard } from './core/guards/UserGuard/user.guard';
 
 const redirectToLogin = () => redirectUnauthorizedTo(['login']);
 
@@ -18,30 +17,32 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
-    ...canActivate(redirectToProduct)
+    ...canActivate(redirectToProduct),
   },
   {
     path: 'register',
     component: RegisterComponent,
-    ...canActivate(redirectToProduct)
+    ...canActivate(redirectToProduct),
   },
   {
     path: '',
-    loadChildren: ()=> 
-    import('./feature/products/products.module').then((m)=> m.ProductsModule),
-    ...canActivate(redirectToLogin)
+    loadChildren: () =>
+      import('./feature/products/products.module').then(
+        (m) => m.ProductsModule
+      ),
+    ...canActivate(redirectToLogin),
   },
   {
-       path: 'admin',
-       loadChildren: () =>
-         import('./feature/admin/admin.module').then((m) => m.AdminModule),
-         canActivate:[GuardsGuard]
-   },
-   {
+    path: 'admin',
+    loadChildren: () =>
+      import('./feature/admin/admin.module').then((m) => m.AdminModule),
+    canActivate: [GuardsGuard],
+  },
+  {
     path: '**',
     component: LoginComponent,
-    ...canActivate(redirectToProduct)
-   }
+    ...canActivate(redirectToProduct),
+  },
 ];
 
 @NgModule({
