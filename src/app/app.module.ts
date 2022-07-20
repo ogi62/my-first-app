@@ -20,7 +20,7 @@ import { LoginComponent } from './shared/shell/login/login.component';
 import { RegisterComponent } from './shared/shell/register/register.component';
 import { provideAuth } from '@angular/fire/auth';
 import { getAuth } from 'firebase/auth';
-import { AuthenticationService } from './services/authentication.service';
+import { AuthenticationService } from './core/services/authentificationService/authentication.service';
 import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
 import { OrdersComponent } from './feature/products/orders/orders.component';
 

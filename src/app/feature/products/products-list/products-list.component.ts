@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/Product';
-import { DataService } from 'src/app/services/data.service';
-import { ModalService } from 'src/app/services/modal.service';
-import { ProductsService } from 'src/app/services/products.service';
+import { DataService } from 'src/app/feature/products/products-list/products-listService/data.service';
+import { ModalService } from 'src/app/feature/products/modal/modalService/modal.service';
+import { ProductsService } from 'src/app/shared/services/productsService/products.service';
 
 
 

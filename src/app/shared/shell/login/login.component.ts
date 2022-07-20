@@ -8,8 +8,8 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
-import { AuthenticationService } from 'src/app/services/authentication.service';
-import { CustomvalidationService } from 'src/app/services/customvalidation.service';
+import { AuthenticationService } from 'src/app/core/services/authentificationService/authentication.service';
+import { CustomvalidationService } from 'src/app/shared/services/customValidationService/customvalidation.service';
 
 @Component({
   selector: 'app-login',

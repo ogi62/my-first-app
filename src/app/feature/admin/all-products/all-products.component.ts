@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { Product } from 'src/app/models/Product';
-import { ProductsService } from 'src/app/services/products.service';
+import { ProductsService } from 'src/app/shared/services/productsService/products.service';
 
 @Component({
   selector: 'app-all-products',

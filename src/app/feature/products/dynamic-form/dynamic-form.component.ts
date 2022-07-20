@@ -1,9 +1,9 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { JsonFormData,JsonFormControls } from 'src/app/models/JsonFormControls';
+import { JsonFormData,JsonFormControls } from 'src/app/feature/products/dynamic-form/models/JsonFormControls';
 import DynamicForm from "../../../../assets/dynamic-form.json";
 import { Order } from "../../../models/Order";
-import { OrderService } from 'src/app/services/order.service';
+import { OrderService } from 'src/app/feature/products/orders/ordersService/order.service';
 import { NgToastService } from 'ng-angular-popup';
 import { Router } from '@angular/router';
 
