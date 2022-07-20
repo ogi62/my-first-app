@@ -30,13 +30,13 @@ const routes: Routes = [
   {
     path: 'admin',
     loadChildren: () =>
-      import('./admin/admin.module').then((m) => m.AdminModule),
+      import('./feature/admin/admin.module').then((m) => m.AdminModule),
       canActivate:[GuardsGuard]
   },
   {
     path: 'admin/products',
     loadChildren: () =>
-      import('./admin/admin.module').then((m) => m.AdminModule),
+      import('./feature/admin/admin.module').then((m) => m.AdminModule),
       canActivate:[GuardsGuard]
     },
   {
@@ -51,13 +51,13 @@ const routes: Routes = [
   {
     path: 'products',
     loadChildren: () =>
-      import('./products/products.module').then((m) => m.ProductsModule),
+      import('./feature/products/products.module').then((m) => m.ProductsModule),
       ...canActivate(redirectToLogin),
   },
   {
     path: 'products/list',
     loadChildren: () =>
-      import('./products/products.module').then((m) => m.ProductsModule),
+      import('./feature/products/products.module').then((m) => m.ProductsModule),
       ...canActivate(redirectToLogin),
   },
   {
