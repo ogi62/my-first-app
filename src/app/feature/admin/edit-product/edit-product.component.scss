@@ -16,17 +16,7 @@
         border-radius: 5px;
         padding: 1rem;
 
-        button {
-            margin-top: 2rem;
-            margin-right: 2rem;
-            padding: 1rem 1.5rem;
-            outline: none;
-            border: none;
-            background-color: lightgreen;
-            color: green;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+        
 
         &-group:nth-of-type(1) {
             padding-top: 1rem;
@@ -61,6 +51,18 @@
                 margin: 1rem;
                 cursor: pointer;
             }
+        }
+
+        .button-group button {
+            margin-top: 2rem;
+            margin-right: 2rem;
+            padding: 1rem 1.5rem;
+            outline: none;
+            border: none;
+            background-color: lightgreen;
+            color: green;
+            border-radius: 5px;
+            cursor: pointer;
         }
     }
 }

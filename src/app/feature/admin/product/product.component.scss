@@ -16,7 +16,7 @@
     border-radius: 5px;
     padding: 1rem;
 
-    button {
+    &-button {
       margin-top: 2rem;
       padding: 1rem 1.5rem;
       outline: none;
@@ -24,12 +24,10 @@
       background-color: lightgreen;
       color: green;
       border-radius: 5px;
-      //   cursor: pointer;
+        cursor: pointer;
     }
 
-    &-group:nth-of-type(1) {
-      padding-top: 1rem;
-    }
+    
 
     &-group {
       display: flex;
@@ -39,12 +37,8 @@
       width: 80%;
       padding-bottom: 1rem;
 
-      input.ng-invalid.ng-touched {
-        border: red 1px solid;
-      }
-
-      input.ng-valid.ng-touched {
-        border: 1px solid lightgreen;
+      &:nth-of-type(1) {
+        padding-top: 1rem;
       }
 
       &Label {
@@ -59,6 +53,14 @@
         cursor: pointer;
       }
 
+      input.ng-invalid.ng-touched {
+        border: red 1px solid;
+      }
+
+      input.ng-valid.ng-touched {
+        border: 1px solid lightgreen;
+      }
+
       textarea {
         width: 60%;
         padding: 0.5rem;
@@ -67,19 +69,20 @@
         justify-content: center;
         margin: 1rem;
         cursor: pointer;
-      }
-      textarea:active, textarea:focus {
-        outline: none;
-      }
 
-      textarea.ng-invalid.ng-touched {
-        border: red 1px solid;
+        &:active, textarea:focus {
+          outline: none;
+        }
+  
+        &.ng-invalid.ng-touched {
+          border: red 1px solid;
+        }
+  
+        &.ng-valid.ng-touched {
+          border: 1px solid lightgreen;
+        }
       }
-
-      textarea.ng-valid.ng-touched {
-        border: 1px solid lightgreen;
-      }
-
+      
       .danger {
         color: red;
       }
