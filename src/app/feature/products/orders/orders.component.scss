@@ -1,32 +1,33 @@
 .container {
     min-height: 90vh;
-}
 
-.table {
-    background-color: black;
-    color: white;
-    width: 100%;
-
-    &-body {
-        background-color: lightblue;
-        border: 1px solid black;
-    }
-
-    &-row {
-        cursor: pointer;
-
-        .table-text {
-            color: black;
-
-
-            &Btn {
-                background-color: black;
-                color: white;
-                border: 1px solid white;
-                outline: none;
-                border-radius: 5px;
-                padding: 0.5rem;
+    .table {
+        background-color: black;
+        color: white;
+        width: 100%;
+    
+        &-body {
+            background-color: lightblue;
+            border: 1px solid black;
+        }
+    
+        &-row {
+            cursor: pointer;
+    
+            &Text {
+                color: black;
+    
+    
+                &Btn {
+                    background-color: black;
+                    color: white;
+                    border: 1px solid white;
+                    outline: none;
+                    border-radius: 5px;
+                    padding: 0.5rem;
+                }
             }
         }
     }
 }
+

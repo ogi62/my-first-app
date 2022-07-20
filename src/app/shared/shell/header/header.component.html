@@ -1,19 +1,19 @@
 <nav class="navbar">
-  <div class="navbar-container">
-    <a class="navbar-logo" routerLink="/products/list">GioSneakers</a>
-    <button class="navbar-button">
+  <div class="navbarContainer">
+    <a class="navbarContainerLogo" routerLink="/products/list">GioSneakers</a>
+    <button class="navbarContainerButton">
       <span class="navbar-button-icon">My First App</span>
     </button>
-    <p class="navbar-name" *ngIf="user$ | async as user">
+    <p class="navbarContainerName" *ngIf="user$ | async as user">
       Welcome {{ user.email }}!
     </p>
-    <a class="navbar-containerOrderNow" routerLink="/order-now">Order Now</a>
-    <a class="navbar-containerOrders" routerLink="/app-orders">See Orders</a>
+    <a class="navbarContainerOrderNow" routerLink="/order-now">Order Now</a>
+    <a class="navbarContainerOrders" routerLink="/app-orders">See Orders</a>
   </div>
 
-  <div class="navbar-items">
-    <a class="navbar-item navbar-link active" routerLink="/admin">Admin</a>
-    <a class="navbar-item navbar-link" routerLink="/">Products</a>
+  <div class="navbarItems">
+    <a class="navbarItem navbar-link active" routerLink="/admin">Admin</a>
+    <a class="navbarItem navbar-link" routerLink="/">Products</a>
     <ng-container
       *ngIf="authService.currentUser$ | async as user; else loginButton"
     >
