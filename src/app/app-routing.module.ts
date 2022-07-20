@@ -42,66 +42,6 @@ const routes: Routes = [
     component: LoginComponent,
     ...canActivate(redirectToProduct)
    }
-  // { path: '',
-  //   redirectTo: '/login',
-  //   pathMatch: 'full'
-  // },
-  // { path: 'login',
-  // component: LoginComponent,
-  // ...canActivate(redirectToProduct)
-  // },
-  // { path: 'register',
-  // component: RegisterComponent,
-  // ...canActivate(redirectToProduct)
-  // },
-  // {
-  //   path: 'admin',
-  //   loadChildren: () =>
-  //     import('./feature/admin/admin.module').then((m) => m.AdminModule),
-  //     canActivate:[GuardsGuard]
-  // },
-  // {
-  //   path: 'admin/products',
-  //   loadChildren: () =>
-  //     import('./feature/admin/admin.module').then((m) => m.AdminModule),
-  //     canActivate:[GuardsGuard]
-  //   },
-  // {
-  //   path: 'admin/product',
-  //   component: ProductComponent,
-  // },
-  // {
-  //   path: 'admin/product/:id',
-  //   component: EditProductComponent,
-  //   ...canActivate(redirectToLogin)
-  // },
-  // {
-  //   path: 'products',
-  //   loadChildren: () =>
-  //     import('./feature/products/products.module').then((m) => m.ProductsModule),
-  //     ...canActivate(redirectToLogin),
-  // },
-  // {
-  //   path: 'products/list',
-  //   loadChildren: () =>
-  //     import('./feature/products/products.module').then((m) => m.ProductsModule),
-  //     ...canActivate(redirectToLogin),
-  // },
-  // {
-  //   path: 'order-now',
-  //   component: DynamicFormComponent,
-  //   canActivate:[UserGuard]
-  // },
-  // {
-  //   path: 'app-orders',
-  //   component: OrdersComponent,
-  //   ...canActivate(redirectToLogin),
-  // },
-  // {
-  //   path: '**',
-  //   component: LoginComponent,
-  //   ...canActivate(redirectToProduct)
-  // }
 ];
 
 @NgModule({
