@@ -17,9 +17,7 @@
         }
 }
 
-.product:nth-of-type(1) {
-    border-top: 1px solid black;
-}
+
 .product {
     width: 90%;
     height: 10rem;
@@ -28,6 +26,10 @@
     border-right: 1px solid black;
     display: flex;
     cursor: pointer;
+
+    &:nth-of-type(1) {
+        border-top: 1px solid black;
+    }
 
     &-image {
             flex: 0.3;
