@@ -10,10 +10,10 @@
     <a class="navbarContainerOrderNow" routerLink="/order-now">Order Now</a>
     <a class="navbarContainerOrders" routerLink="/app-orders">See Orders</a>
   </div>
-
   <div class="navbarItems">
     <a class="navbarItem navbar-link active" routerLink="/admin">Admin</a>
     <a class="navbarItem navbar-link" routerLink="/">Products</a>
+
     <ng-container
       *ngIf="authService.currentUser$ | async as user; else loginButton"
     >
