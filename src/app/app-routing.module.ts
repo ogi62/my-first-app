@@ -7,8 +7,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { canActivate, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/auth-guard';
 import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 import { OrdersComponent } from './components/orders/orders.component';
-import { GuardsGuard } from './guards/guards.guard';
-import { UserGuard } from './guards/user.guard';
+import { GuardsGuard } from './core/guards/AdminGuard/admin.guard';
+import { UserGuard } from './core/guards/UserGuard/user.guard';
 
 const redirectToLogin = () => redirectUnauthorizedTo(['login']);
 
