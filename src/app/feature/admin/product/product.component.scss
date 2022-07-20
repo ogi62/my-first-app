@@ -27,6 +27,17 @@
         cursor: pointer;
     }
 
+    &-buttonDanger {
+      margin-top: 2rem;
+      padding: 1rem 1.5rem;
+      outline: none;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: lightcoral;
+      color: black;
+    }
+
     
 
     &-group {
