@@ -8,10 +8,11 @@
           <input class="form-groupInput" [type]="control.type ? control.type : 'text' " [formControlName]="control.name"
             [placeholder]="control.placeholder" [required]="control.validators.required" />
           <div class="danger"
-            *ngIf="myForm.get(control.name)?.invalid && ( myForm.get(control.name)?.dirty || myForm.get(control.name)?.touched )">
+            *ngIf="myForm.get(control.name)?.invalid && ( myForm.get(control.name)?.dirty || myForm.get(control.name)?.touched )"
+            >
             <div *ngIf="control.validators.minLength">Minimum length is {{control.validators.minLength}}</div>
             <div *ngIf="control?.validators?.required && myForm.get(control.name)?.touched">Input required</div>
-          </div>
+        </div>
         </div>
 
         <div *ngSwitchCase="'radio'">
@@ -26,10 +27,10 @@
           <label class="form-groupLabel" [for]="control.name">{{control.label}}</label>
           <textarea class="form-groupTextarea" [formControlName]="control.name" [id]="control.name" rows="5"
             [placeholder]="control.placeholder"></textarea>
-          <p class="danger"
+          <div class="danger"
             *ngIf="control?.validators?.required && myForm.get(control.name)?.invalid &&( myForm.get(control.name)?.touched)">
             {{control.label}} is required !
-          </p>
+          </div>
         </div>
 
         <div *ngSwitchCase=" 'select' ">
@@ -43,8 +44,8 @@
         </div>
       </div>
     </div>
-    <div class="form-BtnContainer">
-      <button class="form-btn" type="submit" >Submit</button>
+    <div class="form-container">
+      <button class="form-containerBtn" type="submit" >Submit</button>
     </div>
   </form>
 </div>

@@ -1,6 +1,6 @@
 .container {
     min-height: 90vh;
-}
+
 .form {
     // position: relative;
     background-color: whitesmoke;
@@ -38,16 +38,15 @@
             border-radius: 5px;
             outline: none;
             border: 1px solid black;
-        }
 
-        input.ng-invalid.ng-touched {
-            border: red 1px solid;
-          }
-    
-          input.ng-valid.ng-touched {
-            border: 1px solid lightgreen;
-          }
-    
+            &.ng-invalid.ng-touched {
+              border: red 1px solid;
+            }
+      
+            &.ng-valid.ng-touched {
+              border: 1px solid lightgreen;
+            }
+        }
 
         &Select {
             width: 100%;
@@ -59,19 +58,21 @@
             outline: none;
             border: 1px solid black;
             border-radius: 5px;
+
+            &:active, textarea:focus {
+              outline: none;
+            }
+      
+            &.ng-invalid.ng-touched {
+              border: red 1px solid;
+            }
+      
+            &.ng-valid.ng-touched {
+              border: 1px solid lightgreen;
+            }
         }
 
-        textarea:active, textarea:focus {
-            outline: none;
-          }
-    
-          textarea.ng-invalid.ng-touched {
-            border: red 1px solid;
-          }
-    
-          textarea.ng-valid.ng-touched {
-            border: 1px solid lightgreen;
-          }
+        
     
           .danger {
             color: red;
@@ -79,14 +80,13 @@
 
     }
 
-    &-BtnContainer {
+    &-container {
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
-    }
 
-    &-btn {
+      &Btn {
         // position: absolute;
         bottom: 5%;
         width: 10rem;
@@ -99,4 +99,8 @@
         border-radius: 5px;
         outline: none;
     }
+    }
+
+    
+}
 }
