@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
-import { LoginComponent } from './components/login/login.component';
+import { LoginComponent } from './shared/shell/login/login.component';
 import { ProductComponent } from './components/product/product.component';
-import { RegisterComponent } from './components/register/register.component';
+import { RegisterComponent } from './shared/shell/register/register.component';
 import { canActivate, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/auth-guard';
 import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 import { OrdersComponent } from './components/orders/orders.component';
