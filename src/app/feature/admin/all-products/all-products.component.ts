@@ -44,4 +44,8 @@ export class AllProductsComponent implements OnInit {
     });
     this.productService.deleteProduct(id);
   }
+
+  trackProduct(index: number, product: Product) {
+    return product.id;
+  }
 }
