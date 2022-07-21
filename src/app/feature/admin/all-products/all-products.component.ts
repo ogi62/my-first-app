@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
+import { Subject, takeUntil } from 'rxjs';
 import { Product } from 'src/app/shared/models/Product';
 import { ProductsService } from 'src/app/shared/services/productsService/products.service';
 
@@ -9,8 +10,9 @@ import { ProductsService } from 'src/app/shared/services/productsService/product
   templateUrl: './all-products.component.html',
   styleUrls: ['./all-products.component.scss'],
 })
-export class AllProductsComponent implements OnInit {
+export class AllProductsComponent implements OnInit,OnDestroy {
   products: Product[] | any;
+  private unSubscribe$ = new Subject();
 
   constructor(
     private productService: ProductsService,
@@ -19,7 +21,9 @@ export class AllProductsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe((data) => {
+    this.productService.getProducts()
+    .pipe(takeUntil(this.unSubscribe$))
+    .subscribe((data) => {
       this.products = data.map((p) => {
         const product = p.payload.doc.data();
 
@@ -47,5 +51,10 @@ export class AllProductsComponent implements OnInit {
 
   trackProduct(index: number, product: Product) {
     return product.id;
+  }
+
+  ngOnDestroy(): void {
+    this.unSubscribe$.next(null);
+    this.unSubscribe$.complete();
   }
 }
