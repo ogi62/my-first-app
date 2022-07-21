@@ -12,7 +12,7 @@ import { ProductsService } from 'src/app/shared/services/productsService/product
 })
 export class AllProductsComponent implements OnInit,OnDestroy {
   products: Product[] | any;
-  private unSubscribe = new Subject();
+  private unSubscribe$ = new Subject();
 
   constructor(
     private productService: ProductsService,
@@ -22,7 +22,7 @@ export class AllProductsComponent implements OnInit,OnDestroy {
 
   ngOnInit(): void {
     this.productService.getProducts()
-    .pipe(takeUntil(this.unSubscribe))
+    .pipe(takeUntil(this.unSubscribe$))
     .subscribe((data) => {
       this.products = data.map((p) => {
         const product = p.payload.doc.data();
@@ -54,6 +54,7 @@ export class AllProductsComponent implements OnInit,OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.unSubscribe.unsubscribe();
+    this.unSubscribe$.next(null);
+    this.unSubscribe$.complete();
   }
 }

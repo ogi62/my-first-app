@@ -2,7 +2,12 @@
   export interface JsonFormData {
     controls: JsonFormControls[]
   }
-  
+  export enum formElementType {
+    input = 'input',
+    radio = 'radio' ,
+    select= 'select',
+    textarea = 'textarea',
+  }
   export interface JsonFormControls {
     name: string
   label: string

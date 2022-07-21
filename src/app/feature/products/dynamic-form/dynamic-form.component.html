@@ -2,7 +2,7 @@
   <form class="form" [formGroup]="myForm" (ngSubmit)="onSubmit()">
     <div *ngFor="let control of simpleForm">
       <div [ngSwitch]="control.type" class="form-group">
-        <div *ngSwitchCase="'input'">
+        <div *ngSwitchCase="formElement.input">
           <label class="form-groupLabel">{{ control.label }}</label>
           <input
             class="form-groupInput"
@@ -33,7 +33,7 @@
           </div>
         </div>
 
-        <div *ngSwitchCase="'radio'">
+        <div *ngSwitchCase="formElement.radio">
           <div *ngFor="let option of control.options">
             <label class="form-groupLabel" [for]="option.optionName">
               {{ option.optionName }}</label
@@ -50,7 +50,7 @@
           </div>
         </div>
 
-        <div *ngSwitchCase="'textarea'">
+        <div *ngSwitchCase="formElement.textarea">
           <label class="form-groupLabel" [for]="control.name">{{
             control.label
           }}</label>
@@ -73,7 +73,7 @@
           </div>
         </div>
 
-        <div *ngSwitchCase="'select'">
+        <div *ngSwitchCase="formElement.select">
           <label class="form-groupLabel" [for]="control.name">{{
             control.label
           }}</label>

@@ -8,6 +8,7 @@ import {
 import {
   JsonFormData,
   JsonFormControls,
+  formElementType
 } from 'src/app/feature/products/dynamic-form/models/JsonFormControls';
 import DynamicForm from '../../../../assets/dynamic-form.json';
 import { Order } from '../../../shared/models/Order';
@@ -24,6 +25,7 @@ export class DynamicFormComponent implements OnInit {
   public myForm!: FormGroup;
   simpleForm = DynamicForm.controls;
   order!: Order;
+  formElement = formElementType;
 
   constructor(
     private fb: FormBuilder,
