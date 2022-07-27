@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { Order } from "../../../shared/models/Order";
 import { OrderService } from 'src/app/feature/products/orders/ordersService/order.service';
+import { WebsocketService } from './ordersService/websocket.service';
 
 @Component({
   selector: 'app-orders',
@@ -15,10 +16,12 @@ export class OrdersComponent implements OnInit {
 
   constructor(private orderService: OrderService, 
               private router: Router,
-              private toast: NgToastService
+              private toast: NgToastService,
+              private websocketService: WebsocketService
             ) {}
 
   ngOnInit(): void {
+    this.websocketService.getOrders();
     this.orderService.getOrders().subscribe((data) => {
       this.orders = data.map((order) => {
         const product = order.payload.doc.data();
