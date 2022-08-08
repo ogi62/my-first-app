@@ -44,4 +44,9 @@ export class OrdersComponent implements OnInit {
     console.log("getOrder",id);
   }
 
+
+  ngOnDestory() {
+    this.websocketService.getOrders;
+  }
+
 }
