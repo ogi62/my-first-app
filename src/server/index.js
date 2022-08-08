@@ -48,7 +48,10 @@ websocket.on('request', request => {
     //7. 
     connection.on('open', ()=> console.log('Opened'));
     //7.1
-    connection.on('close', ()=> console.log('Closed'));
+    connection.on('close', ()=> {
+        console.log("Server dead :) ")
+        clearInterval(shoesMessage);
+    });
     //7.2
     connection.on('message', (message)=> {
         console.log(`Show the message ${message.utf8Data}`);
@@ -56,7 +59,7 @@ websocket.on('request', request => {
 
 
     //9,
-    sendEvery5Sec();
+    let shoesMessage =  setInterval(sendEvery5Sec, 5000);
 })
 
 //3.
@@ -68,5 +71,4 @@ function sendEvery5Sec() {
     const shoes = ['Adidas','Nike','Reebok','Puma'];
     connection.send(`Random Shoes type to the client every five seconds ... ${shoes[Math.floor(Math.random() * 4)]}`);
 
-    setTimeout(sendEvery5Sec, 5000);
 }

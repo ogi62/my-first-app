@@ -3,12 +3,10 @@ import { Socket } from 'ngx-socket-io';
 
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class WebsocketService {
-
   // orders = this.socket.fromEvent<string>('message');
-
 
   // constructor(private socket: Socket) { }
 
@@ -21,14 +19,22 @@ export class WebsocketService {
 
   // ~~~~~  NACIN BROJ 2 ~~~!!!!
 
-  ws = new WebSocket('ws://localhost:8080');
+  ws!: WebSocket;
 
-  getOrders(): void {
-    // this.ws = new WebSocket('ws://localhost:8080');
-    //ZASTO NECE DA RADI ???
+  getOrders() {
+    this.ws = new WebSocket('ws://localhost:8080');
+    //ZASTO NECE DA RADI
     // this.ws.send("Hello server its me client");
 
-    this.ws.onmessage = message => console.log(`We received message from the server ${message.data}`);
+    this.ws.onmessage = (message) =>
+      console.log(`We received message from the server ${message.data}`);
   }
 
+  disconnect() {
+    // // Close the connection, if open.
+    if (this.ws.readyState === WebSocket.OPEN) {
+      this.ws.close();
+      console.log("Stop !!!")
+    }
+  }
 }
