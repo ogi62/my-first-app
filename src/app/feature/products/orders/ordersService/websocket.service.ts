@@ -23,8 +23,7 @@ export class WebsocketService {
 
   getOrders() {
     this.ws = new WebSocket('ws://localhost:8080');
-    //ZASTO NECE DA RADI
-    // this.ws.send("Hello server its me client");
+    // this.ws.send("Hello server its msg from client");
 
     this.ws.onmessage = (message) =>
       console.log(`We received message from the server ${message.data}`);
