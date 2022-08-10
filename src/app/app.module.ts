@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +22,9 @@ import { getAuth } from 'firebase/auth';
 import { AuthenticationService } from './core/services/authentificationService/authentication.service';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 
+const config: SocketIoConfig = { url: 'http://localhost:8080', options: {} };
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +37,7 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    SocketIoModule.forRoot(config),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideAuth(() => getAuth()),

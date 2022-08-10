@@ -8,7 +8,7 @@ import { Order } from '../../../../shared/models/Order';
 export class OrderService {
   constructor(private orderService: AngularFirestore) {}
 
-  addOrder(order: Order) {
+  addOrder(order: any) {
     return this.orderService.collection('orders').add(order);
   }
 

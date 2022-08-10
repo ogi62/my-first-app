@@ -1,29 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { Order } from "../../../shared/models/Order";
 import { OrderService } from 'src/app/feature/products/orders/ordersService/order.service';
+import { WebsocketService } from './ordersService/websocket.service';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.component.html',
   styleUrls: ['./orders.component.scss']
 })
-export class OrdersComponent implements OnInit {
+export class OrdersComponent implements OnInit,OnDestroy {
 
   orders!: any[];
 
   constructor(private orderService: OrderService, 
               private router: Router,
-              private toast: NgToastService
+              private toast: NgToastService,
+              private websocketService: WebsocketService
             ) {}
+  
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.orderService.getOrders().subscribe((data) => {
       this.orders = data.map((order) => {
         const product = order.payload.doc.data();
 
         return { ...(product as Object), id: order.payload.doc.id}
+      });
+      this.websocketService.getOrders().subscribe((data:any)=> {
+        console.log(data);
       });
     })
   }
@@ -39,6 +46,10 @@ export class OrdersComponent implements OnInit {
 
   getOrder(id: any) {
     console.log("getOrder",id);
+  }
+
+  ngOnDestroy(): void {
+    this.websocketService.disconnect();
   }
 
 }
