@@ -66,19 +66,22 @@ httpserver.listen(8080, () =>
 //8.
 function sendEvery5Sec() {
   const yourOrder = makeOrder();
-  connection.send(
-    `Random Shoes type to the client every five seconds ... ${stringify(
-      yourOrder
-    )}`
-  );
+  // connection.send(
+  //   `Random Shoes type to the client every five seconds ... ${stringify(
+  //     yourOrder
+  //   )}`
+  // );
+  console.log("porudzbina",yourOrder);
+  connection.send(yourOrder);
 }
 //9.
 function makeOrder() {
   const customer = customerFirstAndLast();
   const [firstN, lastN] = customer.split(" ");
-  const productN = productName();
-  const productB = productN.split(" ")[0];
-  console.log(productB);
+  const productNameAndBrand = productName();
+  const productB = productNameAndBrand.shoesBrand;
+  const productN = productNameAndBrand.shoesName;
+
 
   const order = {
     productName: productN,
@@ -88,23 +91,60 @@ function makeOrder() {
     customerName: firstN,
     customerLastName: lastN,
   };
-  console.log(order);
   return order;
 }
 
 function productName() {
-  const shoes = [
-    "NIKE Jordan 6 Rings",
-    "adidas SUPERSTAR",
-    "Nike Air Max 95 ultra",
-    "Nike Air Max Genome",
-    "Nike Air Max 90 Surplus",
-    "Nike Air Max Pre-Day",
-    "NIKE Patike Jordan MA2",
-    "NIKE Air Force 1 React",
-    "NIKE Air Jordan 1",
-    "NEW BALANCE 329",
-    "NEW BALANCE 5740",
+  const shoes = [{
+    shoesName: "Nike Jordan 6 Rings",
+    shoesBrand: "Nike"
+  },
+  {
+    shoesName: "Adidas SUPERSTAR",
+    shoesBrand: "Adidas"
+  },
+  {
+    shoesName: "Nike Air Max 95 ultra",
+    shoesBrand: "Nike"
+  },
+  {
+    shoesName:  "Nike Air Max Genome",
+    shoesBrand: "Nike"
+  },
+  {
+    shoesName: "Nike Air Max 90 Surplus",
+    shoesBrand: "Nike"
+  },
+  {
+    shoesName: "Nike Air Max Pre-Day",
+    shoesBrand: "Nike"
+  },
+  {
+    shoesName: "Nike Patike Jordan MA2",
+    shoesBrand: "Nike"
+  },
+  {
+    shoesName: "Nike Air Force 1 React",
+    shoesBrand: "Nike"
+  },
+  {
+    shoesName: "New Balance 329",
+    shoesBrand: "New Balance"
+  },
+  {
+    shoesName: "New Balance 5740",
+    shoesBrand: "New Balance"
+  }
+    
+    
+    
+   
+    
+    
+    
+    
+    
+    
   ];
 
   return shoes[Math.floor(Math.random() * 11)];

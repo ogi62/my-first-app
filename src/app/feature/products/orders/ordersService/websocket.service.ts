@@ -1,5 +1,14 @@
 import { Injectable } from '@angular/core';
-import { Socket } from 'ngx-socket-io';
+import { Observable } from 'rxjs';
+
+interface Order {
+  productName: string,
+  productBrand: string,
+  productColor: string,
+  productSize: string,
+  customerName: string,
+  customerLastName: string,
+};
 
 
 @Injectable({
@@ -21,12 +30,27 @@ export class WebsocketService {
 
   ws!: WebSocket;
 
-  getOrders() {
+  getOrders():Observable<Order> | any {
     this.ws = new WebSocket('ws://localhost:8080');
     // this.ws.send("Hello server its msg from client");
+    let order = {
+      productName: "",
+      productBrand: "",
+      productColor: "",
+      productSize: "",
+      customerName: "",
+      customerLastName: "",
+    };
 
-    this.ws.onmessage = (message) =>
+
+    this.ws.onmessage = (message) => {
+      console.log(message.data);
       console.log(`We received message from the server ${message.data}`);
+
+       order = message.data;
+    }
+
+    return order;
   }
 
   disconnect() {

@@ -20,17 +20,17 @@ export class OrdersComponent implements OnInit,OnDestroy {
               private toast: NgToastService,
               private websocketService: WebsocketService
             ) {}
-  ngOnDestroy(): void {
-    this.websocketService.disconnect();
-  }
+  
 
   ngOnInit() {
-    this.websocketService.getOrders();
     this.orderService.getOrders().subscribe((data) => {
       this.orders = data.map((order) => {
         const product = order.payload.doc.data();
 
         return { ...(product as Object), id: order.payload.doc.id}
+      });
+      this.websocketService.getOrders().subscribe((data:any)=> {
+        console.log(data);
       });
     })
   }
@@ -46,6 +46,10 @@ export class OrdersComponent implements OnInit,OnDestroy {
 
   getOrder(id: any) {
     console.log("getOrder",id);
+  }
+
+  ngOnDestroy(): void {
+    this.websocketService.disconnect();
   }
 
 }
