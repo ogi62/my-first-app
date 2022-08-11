@@ -4,7 +4,7 @@ import { NgToastService } from 'ng-angular-popup';
 import { Order } from "../../../shared/models/Order";
 import { OrderService } from 'src/app/feature/products/orders/ordersService/order.service';
 import { WebsocketService } from './ordersService/websocket.service';
-import { Subject, takeUntil } from 'rxjs';
+import { Subject, takeUntil, takeWhile } from 'rxjs';
 
 @Component({
   selector: 'app-orders',
@@ -29,8 +29,10 @@ export class OrdersComponent implements OnInit,OnDestroy {
 
         return { ...(product as Object), id: order.payload.doc.id}
       });
-      this.websocketService.getOrders().subscribe((data:any)=> {
-        console.log(data);
+      this.websocketService.getOrders();
+      this.websocketService.order$
+      .subscribe((data:any)=> {
+        this.orders.push(data);
       });
     })
   }

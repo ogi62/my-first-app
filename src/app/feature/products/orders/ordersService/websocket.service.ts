@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { from, Observable, of, Subject } from 'rxjs';
 
 interface Order {
   productName: string,
@@ -29,28 +29,30 @@ export class WebsocketService {
   // ~~~~~  NACIN BROJ 2 ~~~!!!!
 
   ws!: WebSocket;
+  order$: Subject<any> = new Subject<any>();
 
-  getOrders():Observable<Order> | any {
+  getOrders():any {
     this.ws = new WebSocket('ws://localhost:8080');
     // this.ws.send("Hello server its msg from client");
-    let order = {
-      productName: "",
-      productBrand: "",
-      productColor: "",
-      productSize: "",
-      customerName: "",
-      customerLastName: "",
-    };
+    // let order = {
+    //   productName: "",
+    //   productBrand: "",
+    //   productColor: "",
+    //   productSize: "",
+    //   customerName: "",
+    //   customerLastName: "",
+    // };
 
 
-    this.ws.onmessage = (message) => {
-      console.log(message.data);
+     this.ws.onmessage = (message) => {
+      console.log(JSON.parse(message.data));
       console.log(`We received message from the server ${message.data}`);
 
-       order = message.data;
+      this.order$.next(JSON.parse(message.data));
+      //  return order;
+
     }
 
-    return order;
   }
 
   disconnect() {

@@ -72,7 +72,7 @@ function sendEvery5Sec() {
   //   )}`
   // );
   console.log("porudzbina",yourOrder);
-  connection.send(yourOrder);
+  connection.send(JSON.stringify(yourOrder));
 }
 //9.
 function makeOrder() {
@@ -84,18 +84,19 @@ function makeOrder() {
 
 
   const order = {
-    productName: productN,
-    productBrand: productB,
+    productName: productNameAndBrand.shoesName,
+    productBrand: productNameAndBrand.shoesBrand,
     productColor: productColor(),
     productSize: productSize(),
-    customerName: firstN,
-    customerLastName: lastN,
+    firstName: firstN,
+    lastName: lastN,
   };
   return order;
 }
 
 function productName() {
-  const shoes = [{
+  const shoes = [
+  {
     shoesName: "Nike Jordan 6 Rings",
     shoesBrand: "Nike"
   },
@@ -134,17 +135,7 @@ function productName() {
   {
     shoesName: "New Balance 5740",
     shoesBrand: "New Balance"
-  }
-    
-    
-    
-   
-    
-    
-    
-    
-    
-    
+  } 
   ];
 
   return shoes[Math.floor(Math.random() * 11)];
